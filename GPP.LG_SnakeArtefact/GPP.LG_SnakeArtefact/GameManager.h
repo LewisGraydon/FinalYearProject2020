@@ -15,8 +15,13 @@ public:
 
 	void DrawMainMenu(sf::RenderWindow& window);
 
+	MainMenu getMainMenu() { return *mainMenu; }
+
 	sf::Font font;
 	sf::VideoMode desktopResolution;
-	MainMenu mainMenu;
+
+private:
+
+	MainMenu* mainMenu;
 };
 

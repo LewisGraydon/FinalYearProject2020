@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include "GameManager.h"
+#include <iostream>
 
 int main()
 {
@@ -18,14 +19,51 @@ int main()
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
+			switch (event.type)
+			{
+
+			case sf::Event::Closed:
 				window.close();
+
+			case sf::Event::KeyReleased:
+
+				switch (event.key.code)
+				{
+				case sf::Keyboard::Up:
+					gm.getMainMenu().NavigateUp();
+					break;
+				
+				case sf::Keyboard::Down:
+					gm.getMainMenu().NavigateDown();
+					break;
+
+				case sf::Keyboard::Return:
+
+					switch (gm.getMainMenu().getSelectedIndex())
+					{
+					case 0:
+						//Play button pressed
+						break;
+
+					case 1:
+						//AI Play button pressed
+						break;
+
+					case 2:
+						//Exit button pressed
+						window.close();
+						break;
+					}
+
+				default:
+					break;
+				}		
+			}		
 		}
 
 		window.clear();
 
 		//Draw calls
-
 		gm.DrawMainMenu(window);
 
 		window.display();

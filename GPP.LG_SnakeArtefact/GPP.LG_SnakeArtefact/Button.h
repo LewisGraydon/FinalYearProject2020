@@ -6,7 +6,7 @@ class Button
 public:
 
 	Button();
-	Button(sf::VideoMode screenSize, std::string textString, int characterSize, sf::Font& font);
+	Button(sf::VideoMode screenSize, std::string textString, int characterSize, sf::Font& font, sf::Color colour);
 	~Button();
 
 	void PositionButton(sf::Vector2f position);

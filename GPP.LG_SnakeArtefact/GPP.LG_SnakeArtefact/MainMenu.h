@@ -13,10 +13,13 @@ public:
 	~MainMenu();
 
 	void DrawMenu(sf::RenderWindow& window);
+	void NavigateUp();
+	void NavigateDown();
+	int getSelectedIndex() { return *selectedIndex; }
 
 private:
 
-	int selectedIndex = 0;
+	int *selectedIndex;
 	sf::Text titleText;
 	Button* menuButtons[MaxNumItems];
 };

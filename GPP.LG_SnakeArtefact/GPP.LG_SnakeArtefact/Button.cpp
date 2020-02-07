@@ -5,7 +5,7 @@ Button::Button()
 
 }
 
-Button::Button(sf::VideoMode screenSize, std::string textString, int characterSize, sf::Font& font)
+Button::Button(sf::VideoMode screenSize, std::string textString, int characterSize, sf::Font& font, sf::Color colour)
 {
 	buttonRect.setSize(sf::Vector2f(300, 100));
 	buttonRect.setFillColor(sf::Color::Blue);
@@ -14,7 +14,7 @@ Button::Button(sf::VideoMode screenSize, std::string textString, int characterSi
 	text.setFont(font);
 	text.setString(textString);
 	text.setCharacterSize(characterSize);
-	text.setFillColor(sf::Color::White);
+	text.setFillColor(colour);
 	text.setOrigin(text.getLocalBounds().width / 2, text.getLocalBounds().height / 2);
 }
 

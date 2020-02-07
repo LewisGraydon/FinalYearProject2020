@@ -14,7 +14,7 @@ GameManager::~GameManager()
 
 void GameManager::SetupMainMenu()
 {
-	mainMenu = MainMenu(font, desktopResolution);
+	mainMenu = new MainMenu(font, desktopResolution);
 }
 
 bool GameManager::SetupAIPlayer()
@@ -29,5 +29,5 @@ bool GameManager::SetupPlayer()
 
 void GameManager::DrawMainMenu(sf::RenderWindow& window)
 {
-	mainMenu.DrawMenu(window);
+	mainMenu->DrawMenu(window);
 }
