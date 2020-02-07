@@ -6,6 +6,8 @@ GameManager::GameManager(sf::VideoMode screenSize) : desktopResolution(screenSiz
 	{
 		printf("Bad");
 	}
+
+	SetupMainMenu();
 }
 
 GameManager::~GameManager()
@@ -14,20 +16,42 @@ GameManager::~GameManager()
 
 void GameManager::SetupMainMenu()
 {
-	mainMenu = new MainMenu(font, desktopResolution);
+	if (mainMenu == nullptr)
+	{
+		mainMenu = new MainMenu(font, desktopResolution);
+	}
+
+	gameState = EGameState::eMainMenu;
 }
 
-bool GameManager::SetupAIPlayer()
+void GameManager::SetupGameWorld(bool playerControlled)
 {
-	return true;
-}
+	if (gameWorld == nullptr)
+	{
+		gameWorld = new GameWorld(desktopResolution);
+	}
 
-bool GameManager::SetupPlayer()
-{
-	return true;
+	switch (playerControlled)
+	{
+	case true:
+		gameState = EGameState::eNormalPlayMode;
+		break;
+
+	case false:
+		gameState = EGameState::eAIPlayMode;
+		break;
+
+	default:
+		break;
+	}
 }
 
 void GameManager::DrawMainMenu(sf::RenderWindow& window)
 {
 	mainMenu->DrawMenu(window);
+}
+
+void GameManager::DrawGameWorld(sf::RenderWindow& window)
+{
+	gameWorld->DrawGameWorld(window);
 }

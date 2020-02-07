@@ -9,10 +9,6 @@ int main()
 	sf::RenderWindow window(desktopResolution, "LG Snake Artefact", sf::Style::Default);
 
 	GameManager gm(desktopResolution);
-	gm.SetupMainMenu();
-
-	//sf::CircleShape shape(100.f);
-	//shape.setFillColor(sf::Color::Green);
 
 	while (window.isOpen())
 	{
@@ -27,36 +23,64 @@ int main()
 
 			case sf::Event::KeyReleased:
 
-				switch (event.key.code)
+				switch (gm.gameState)
 				{
-				case sf::Keyboard::Up:
-					gm.getMainMenu().NavigateUp();
-					break;
+
+				case gm.eMainMenu:
 				
-				case sf::Keyboard::Down:
-					gm.getMainMenu().NavigateDown();
-					break;
-
-				case sf::Keyboard::Return:
-
-					switch (gm.getMainMenu().getSelectedIndex())
+					switch (event.key.code)
 					{
-					case 0:
-						//Play button pressed
+					case sf::Keyboard::Up:
+						gm.getMainMenu().NavigateUp();
 						break;
 
-					case 1:
-						//AI Play button pressed
+					case sf::Keyboard::Down:
+						gm.getMainMenu().NavigateDown();
 						break;
 
-					case 2:
-						//Exit button pressed
-						window.close();
+					case sf::Keyboard::Return:
+
+						switch (gm.getMainMenu().getSelectedIndex())
+						{
+						case 0:
+							//Play button pressed
+							gm.SetupGameWorld(true);
+							break;
+
+						case 1:
+							//AI Play button pressed
+							gm.SetupGameWorld(false);
+							break;
+
+						case 2:
+							//Exit button pressed					
+							window.close();
+							break;
+
+						default:
+							break;
+						}
+						break;
+
+					default:
 						break;
 					}
 
+				case gm.eNormalPlayMode:
+				
+
+				case gm.eAIPlayMode:
+
+					switch (event.key.code)
+					{
+					case sf::Keyboard::Escape:
+						gm.SetupMainMenu();
+					}
+					break;
+
 				default:
 					break;
+
 				}		
 			}		
 		}
@@ -64,8 +88,28 @@ int main()
 		window.clear();
 
 		//Draw calls
-		gm.DrawMainMenu(window);
 
+		switch (gm.gameState)
+		{
+		case gm.eMainMenu:
+
+			gm.DrawMainMenu(window);
+
+			break;
+
+		case gm.eNormalPlayMode:
+
+			gm.DrawGameWorld(window);
+
+			break;
+
+		case gm.eAIPlayMode:
+
+			gm.DrawGameWorld(window);
+
+			break;
+		}
+		
 		window.display();
 	}
 

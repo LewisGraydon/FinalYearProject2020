@@ -18,9 +18,9 @@ MainMenu::MainMenu(sf::Font& font, sf::VideoMode screenSize)
 	menuButtons[2] = new Button(screenSize, "Quit Game", 48, font, sf::Color::White);
 
 	// origin is top left
-	menuButtons[0]->PositionButton(sf::Vector2f(screenSize.width / 2.0f, screenSize.height - screenSize.height / (MaxNumItems + 4.0f) * 3.0f));
-	menuButtons[1]->PositionButton(sf::Vector2f(screenSize.width / 2.0f, screenSize.height - screenSize.height / (MaxNumItems + 4.0f) * 2.0f));
-	menuButtons[2]->PositionButton(sf::Vector2f(screenSize.width / 2.0f, screenSize.height - screenSize.height / (MaxNumItems + 4.0f) * 1.0f));
+	menuButtons[0]->PositionButton(sf::Vector2f(screenSize.width / 2.0f, screenSize.height - screenSize.height / (MaxNumItems + 4.0f) * 3.0f - 100.0f));
+	menuButtons[1]->PositionButton(sf::Vector2f(screenSize.width / 2.0f, screenSize.height - screenSize.height / (MaxNumItems + 4.0f) * 2.0f - 100.0f));
+	menuButtons[2]->PositionButton(sf::Vector2f(screenSize.width / 2.0f, screenSize.height - screenSize.height / (MaxNumItems + 4.0f) * 1.0f - 100.0f));
 
 	selectedIndex = new int(0);
 }
