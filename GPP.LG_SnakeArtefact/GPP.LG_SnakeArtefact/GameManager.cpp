@@ -28,7 +28,7 @@ void GameManager::SetupGameWorld(bool playerControlled)
 {
 	if (gameWorld == nullptr)
 	{
-		gameWorld = new GameWorld(desktopResolution);
+		gameWorld = new GameWorld(font, desktopResolution);
 	}
 
 	switch (playerControlled)

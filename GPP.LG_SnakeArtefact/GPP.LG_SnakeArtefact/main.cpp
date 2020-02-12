@@ -2,6 +2,8 @@
 #include "GameManager.h"
 #include <iostream>
 
+// To work on Uni labs, output directory needs to be C:\Users\s6021534\source\ at home it is C:\Users\lewis\source\
+
 int main()
 {
 

@@ -5,7 +5,7 @@ class GameWorld
 {
 public:
 
-	GameWorld(sf::VideoMode screenSize);
+	GameWorld(sf::Font& font, sf::VideoMode screenSize);
 	~GameWorld();
 
 	void DrawGameWorld(sf::RenderWindow& window);
@@ -13,5 +13,7 @@ public:
 private:
 
 	sf::RectangleShape rectShape;
+	sf::Text helpText;
+	sf::Text scoreText;
 };
 

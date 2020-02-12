@@ -76,7 +76,7 @@
     <OutDir>C:\Users\s6021534\Source\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>C:\Users\s6021534\source\</OutDir>
+    <OutDir>C:\Users\lewis\source\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>C:\Users\s6021534\Source\</OutDir>
@@ -150,17 +150,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AISnake.cpp" />
+    <ClCompile Include="BaseSnakeClass.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="PlayerSnake.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AISnake.h" />
+    <ClInclude Include="BaseSnakeClass.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameWorld.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="PlayerSnake.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
