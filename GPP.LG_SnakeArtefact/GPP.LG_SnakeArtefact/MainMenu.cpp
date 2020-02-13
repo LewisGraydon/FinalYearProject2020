@@ -52,6 +52,13 @@ void MainMenu::NavigateUp()
 		menuButtons[*selectedIndex]->text.setFillColor(sf::Color::Yellow);
 		
 	}
+
+	else if (*selectedIndex - 1 < 0)
+	{
+		menuButtons[*selectedIndex]->text.setFillColor(sf::Color::White);
+		*selectedIndex = MaxNumItems - 1;
+		menuButtons[*selectedIndex]->text.setFillColor(sf::Color::Yellow);
+	}
 }
 
 void MainMenu::NavigateDown()
@@ -63,6 +70,13 @@ void MainMenu::NavigateDown()
 		//Incrementing a value held by a pointer needs the pointer value to be in parenthesis as the increment operator takes precedance.
 		(*selectedIndex)++;
 
+		menuButtons[*selectedIndex]->text.setFillColor(sf::Color::Yellow);
+	}
+
+	else if (*selectedIndex + 1 >= MaxNumItems)
+	{
+		menuButtons[*selectedIndex]->text.setFillColor(sf::Color::White);
+		*selectedIndex = 0;
 		menuButtons[*selectedIndex]->text.setFillColor(sf::Color::Yellow);
 	}
 }

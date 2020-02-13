@@ -1,4 +1,5 @@
 #include "GameWorld.h"
+#include <sstream>
 
 GameWorld::GameWorld(sf::Font& font,  sf::VideoMode screenSize)
 {
@@ -27,9 +28,35 @@ GameWorld::~GameWorld()
 
 }
 
+void GameWorld::InitialiseGameWorld(sf::VideoMode screenSize)
+{
+	if (playerControl)
+	{
+		snakeCharacter = new PlayerSnake(screenSize);
+	}
+	else
+	{
+		snakeCharacter = new AISnake(screenSize);
+	}
+}
+
 void GameWorld::DrawGameWorld(sf::RenderWindow& window)
 {
 	window.draw(rectShape);
+	UpdateScore(*snakeCharacter);
 	window.draw(scoreText);
 	window.draw(helpText);
+	snakeCharacter->drawSnake(window, sf::Color::Red);
+}
+
+void GameWorld::UpdateScore(BaseSnakeClass& snake)
+{
+	std::ostringstream score;
+	score << "Score: " << snake.getScore();
+	scoreText.setString(score.str());
+}
+
+void GameWorld::Update()
+{
+	//update snake pos?
 }

@@ -30,6 +30,8 @@ void GameManager::SetupGameWorld(bool playerControlled)
 	{
 		gameWorld = new GameWorld(font, desktopResolution);
 	}
+	gameWorld->SetPlayerControl(playerControlled);
+	gameWorld->InitialiseGameWorld(desktopResolution);
 
 	switch (playerControlled)
 	{
@@ -40,10 +42,9 @@ void GameManager::SetupGameWorld(bool playerControlled)
 	case false:
 		gameState = EGameState::eAIPlayMode;
 		break;
-
-	default:
-		break;
 	}
+
+	
 }
 
 void GameManager::DrawMainMenu(sf::RenderWindow& window)

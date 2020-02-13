@@ -8,7 +8,7 @@ int main()
 {
 
 	sf::VideoMode desktopResolution = sf::VideoMode::getDesktopMode();
-	sf::RenderWindow window(desktopResolution, "LG Snake Artefact", sf::Style::Default);
+	sf::RenderWindow window(desktopResolution, "LG Snake Artefact", sf::Style::Fullscreen);
 
 	GameManager gm(desktopResolution);
 
@@ -101,12 +101,9 @@ int main()
 
 		case gm.eNormalPlayMode:
 
-			gm.DrawGameWorld(window);
-
-			break;
-
 		case gm.eAIPlayMode:
 
+			gm.getGameWorld().Update();
 			gm.DrawGameWorld(window);
 
 			break;

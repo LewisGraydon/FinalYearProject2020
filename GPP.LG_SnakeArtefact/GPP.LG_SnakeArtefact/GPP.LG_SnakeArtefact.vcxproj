@@ -76,7 +76,7 @@
     <OutDir>C:\Users\s6021534\Source\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>C:\Users\lewis\source\</OutDir>
+    <OutDir>C:\Users\s6021534\source\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>C:\Users\s6021534\Source\</OutDir>
@@ -153,6 +153,7 @@
     <ClCompile Include="AISnake.cpp" />
     <ClCompile Include="BaseSnakeClass.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Food.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="main.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="AISnake.h" />
     <ClInclude Include="BaseSnakeClass.h" />
     <ClInclude Include="Button.h" />
+    <ClInclude Include="Food.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameWorld.h" />
     <ClInclude Include="MainMenu.h" />

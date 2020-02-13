@@ -24,6 +24,7 @@ public:
 	void DrawGameWorld(sf::RenderWindow& window);
 
 	MainMenu getMainMenu() { return *mainMenu; }
+	GameWorld getGameWorld() { return *gameWorld; }
 
 	sf::Font font;
 	sf::VideoMode desktopResolution;
