@@ -2,11 +2,9 @@
 
 BaseSnakeClass::BaseSnakeClass(sf::VideoMode screenSize) : sizeOfScreen(screenSize)
 {
-	snakeSegments = new std::vector<sf::Vector2i>[0];
-	snakeSegments->resize(0);
 	snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2)); 
+	snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2 - 10));
 	snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2 - 20));
-	snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2 - 40));
 }
 
 BaseSnakeClass::~BaseSnakeClass()
@@ -70,7 +68,7 @@ void BaseSnakeClass::drawSnake(sf::RenderWindow& window, sf::Color colour)
 	for (sf::Vector2i& i : getSnakeSegments())
 	{
 		sf::RectangleShape snakeBody({ 10, 10 });
-		snakeBody.setOutlineThickness(1.f);
+		snakeBody.setOutlineThickness(0.5f);
 		snakeBody.setOutlineColor(sf::Color::Black);
 		snakeBody.setFillColor(i == getSnakeSegments()[0] ? sf::Color::Green : colour);
 		snakeBody.setPosition((sf::Vector2f)i);

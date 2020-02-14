@@ -30,7 +30,7 @@ public:
 
 private:
 
-	std::vector<sf::Vector2i>* snakeSegments;
+	std::vector<sf::Vector2i>* snakeSegments = new std::vector<sf::Vector2i>();
 	EDirection direction = EDirection::eNone;
 	sf::VideoMode sizeOfScreen;
 	int score = 0;
