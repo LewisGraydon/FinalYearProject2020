@@ -33,6 +33,8 @@ void GameWorld::InitialiseGameWorld(sf::VideoMode screenSize)
 	if (playerControl)
 	{
 		snakeCharacter = new PlayerSnake(screenSize);
+
+
 	}
 	else
 	{
@@ -53,10 +55,12 @@ void GameWorld::UpdateScore(BaseSnakeClass& snake)
 {
 	std::ostringstream score;
 	score << "Score: " << snake.getScore();
+	scoreText.setOrigin(scoreText.getLocalBounds().width / 2, scoreText.getLocalBounds().height / 2);
 	scoreText.setString(score.str());
 }
 
-void GameWorld::Update()
+void GameWorld::Update(sf::Event& event)
 {
-	//update snake pos?
+	snakeCharacter->Update(event);
+	snakeCharacter->moveSnake();
 }

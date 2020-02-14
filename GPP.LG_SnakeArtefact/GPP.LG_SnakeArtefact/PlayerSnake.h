@@ -7,6 +7,9 @@ public:
 	PlayerSnake(sf::VideoMode screenSize);
 	~PlayerSnake();
 
+	void setDirection(EDirection newDirection);
+	void Update(sf::Event& event);
+
 private:
 
 };

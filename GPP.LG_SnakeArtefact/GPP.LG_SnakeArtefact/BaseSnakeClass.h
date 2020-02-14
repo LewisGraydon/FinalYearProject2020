@@ -24,9 +24,11 @@ public:
 	EDirection getDirection() { return direction; }
 	int getScore() { return score; }
 
-	void setDirection(EDirection newDirection) { direction = newDirection; }
+	virtual void setDirection(EDirection newDirection) { direction = newDirection; }
 	void moveSnake();
 	void drawSnake(sf::RenderWindow& window, sf::Color colour);
+	virtual void Update(sf::Event& event) { };
+	bool CollisionDetection();
 
 private:
 

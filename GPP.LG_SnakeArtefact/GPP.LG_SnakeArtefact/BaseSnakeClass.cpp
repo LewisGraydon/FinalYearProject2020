@@ -20,25 +20,26 @@ void BaseSnakeClass::moveSnake()
 	switch (direction)
 	{
 	case eNone:
+		return;
 		break;
 
 	case eUp:
 		velocity.x = 0;
-		velocity.y = -1;
+		velocity.y = -10;
 		break;
 
 	case eDown:
 		velocity.x = 0;
-		velocity.y = 1;
+		velocity.y = 10;
 		break;
 
 	case eLeft:
-		velocity.x = -1;
+		velocity.x = -10;
 		velocity.y = 0;
 		break;
 
 	case eRight:
-		velocity.x = 1;
+		velocity.x = 10;
 		velocity.y = 0;
 		break;
 
@@ -57,7 +58,7 @@ void BaseSnakeClass::moveSnake()
 		else
 		{
 			temp = i;
-			i = previousPosition;       //pop and push of the list
+			i = previousPosition;
 			previousPosition = temp;
 		}
 	}
@@ -75,3 +76,10 @@ void BaseSnakeClass::drawSnake(sf::RenderWindow& window, sf::Color colour)
 		window.draw(snakeBody);
 	}
 }
+
+bool BaseSnakeClass::CollisionDetection()
+{
+	// Expand
+	return false;
+}
+

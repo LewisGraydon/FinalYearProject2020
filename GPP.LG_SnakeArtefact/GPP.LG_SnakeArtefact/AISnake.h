@@ -7,6 +7,8 @@ public:
 	AISnake(sf::VideoMode screenSize);
 	~AISnake();
 
+	void Update(sf::Event& event);
+
 private:
 
 };

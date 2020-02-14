@@ -6,15 +6,17 @@
 
 int main()
 {
-
 	sf::VideoMode desktopResolution = sf::VideoMode::getDesktopMode();
 	sf::RenderWindow window(desktopResolution, "LG Snake Artefact", sf::Style::Fullscreen);
 
 	GameManager gm(desktopResolution);
+	sf::Clock clock;
 
 	while (window.isOpen())
 	{
 		sf::Event event;
+		sf::Time timeElapsed = clock.getElapsedTime();
+
 		while (window.pollEvent(event))
 		{
 			switch (event.type)
@@ -69,7 +71,6 @@ int main()
 					}
 
 				case gm.eNormalPlayMode:
-				
 
 				case gm.eAIPlayMode:
 
@@ -79,7 +80,7 @@ int main()
 						gm.SetupMainMenu();
 					}
 					break;
-
+				
 				default:
 					break;
 
@@ -103,8 +104,15 @@ int main()
 
 		case gm.eAIPlayMode:
 
-			gm.getGameWorld().Update();
 			gm.DrawGameWorld(window);
+
+			// May need to tweak the actual float value for snek speed.
+			if (timeElapsed.asSeconds() > 0.1)
+			{
+				timeElapsed = clock.restart();
+				gm.getGameWorld().Update(event);
+			}
+			
 
 			break;
 		}
