@@ -23,6 +23,7 @@ public:
 	std::vector<sf::Vector2i> &getSnakeSegments() { return *snakeSegments; }
 	EDirection getDirection() { return direction; }
 	int getScore() { return score; }
+	float getLengthOfASide() { return lengthOfASide; }
 
 	virtual void setDirection(EDirection newDirection) { direction = newDirection; }
 	void moveSnake();
@@ -36,5 +37,6 @@ private:
 	EDirection direction = EDirection::eNone;
 	sf::VideoMode sizeOfScreen;
 	int score = 0;
+	float lengthOfASide = 10.0f;
 };
 

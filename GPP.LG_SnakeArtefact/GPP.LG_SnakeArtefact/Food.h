@@ -14,17 +14,19 @@ class Food
 
 	int getScoreAmount() { return scoreAmount; }
 	bool getActive() { return isActive; }
-	sf::Vector2u getPosition() { return position; }
+	sf::Vector2i getPosition() { return position; }
 
 	void setActive(bool active) { isActive = active; }
-	void setPosition(sf::Vector2u newPosition) { position = newPosition; }
-	void setPosition(unsigned int newX, unsigned int newY) { position.x = newX, position.y = newY; }
+	void setPosition(sf::Vector2i newPosition) { position = newPosition; }
+
+	// This overloaded function is purely optional, as I can pass in two parameters to the function that takes a vector2u but surround them with {}.
+	void setPosition(unsigned int newX, unsigned int newY) { position.x = newX, position.y = newY; } 
 
 	private:
 
-	sf::CircleShape shape;
+	sf::RectangleShape rectShape{ {10, 10} };
 	int scoreAmount;
 	bool isActive;
-	sf::Vector2u position;
+	sf::Vector2i position;
 };
 

@@ -23,8 +23,8 @@ public:
 	void DrawMainMenu(sf::RenderWindow& window);
 	void DrawGameWorld(sf::RenderWindow& window);
 
-	MainMenu getMainMenu() { return *mainMenu; }
-	GameWorld getGameWorld() { return *gameWorld; }
+	MainMenu& getMainMenu() { return *mainMenu; }
+	GameWorld& getGameWorld() { return *gameWorld; }
 
 	sf::Font font;
 	sf::VideoMode desktopResolution;
@@ -32,7 +32,7 @@ public:
 
 private:
 
-	MainMenu* mainMenu;
-	GameWorld* gameWorld;
+	MainMenu* mainMenu = nullptr;
+	GameWorld* gameWorld = nullptr;
 };
 
