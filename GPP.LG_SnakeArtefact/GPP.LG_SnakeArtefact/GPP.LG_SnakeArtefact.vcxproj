@@ -76,7 +76,7 @@
     <OutDir>C:\Users\s6021534\Source\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <OutDir>C:\Users\s6021534\source\</OutDir>
+    <OutDir>C:\Users\lewis\source\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>C:\Users\s6021534\Source\</OutDir>

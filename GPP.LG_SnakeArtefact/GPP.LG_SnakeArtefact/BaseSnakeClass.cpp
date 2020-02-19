@@ -5,11 +5,11 @@ BaseSnakeClass::BaseSnakeClass(sf::VideoMode screenSize) : sizeOfScreen(screenSi
 	snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2)); 
 	snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2 - 10));
 	snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2 - 20));
-
 	snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2 - 30));
-	snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2 - 40));
-	snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2 - 50));
-	snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2 - 60));
+
+	//snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2 - 40));
+	//snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2 - 50));
+	//snakeSegments->push_back(sf::Vector2i(screenSize.width / 2, screenSize.height / 2 - 60));
 }
 
 BaseSnakeClass::~BaseSnakeClass()
@@ -74,17 +74,12 @@ void BaseSnakeClass::drawSnake(sf::RenderWindow& window, sf::Color colour)
 	for (sf::Vector2i& i : getSnakeSegments())
 	{
 		sf::RectangleShape snakeBody({ lengthOfASide, lengthOfASide });
-		snakeBody.setOutlineThickness(0.5f);
+		snakeBody.setOutlineThickness(1.0f);
 		snakeBody.setOutlineColor(sf::Color::Black);
-		snakeBody.setFillColor(i == getSnakeSegments()[0] ? sf::Color::Yellow : colour);
+		snakeBody.setFillColor(i == getSnakeSegments()[0] ? sf::Color::Red : colour);
 		snakeBody.setPosition((sf::Vector2f)i);
 		window.draw(snakeBody);
 	}
 }
 
-bool BaseSnakeClass::CollisionDetection()
-{
-	// Expand
-	return false;
-}
 

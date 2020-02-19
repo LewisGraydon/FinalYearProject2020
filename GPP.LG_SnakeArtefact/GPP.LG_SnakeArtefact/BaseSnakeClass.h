@@ -21,15 +21,20 @@ public:
 	~BaseSnakeClass();
 
 	std::vector<sf::Vector2i> &getSnakeSegments() { return *snakeSegments; }
-	EDirection getDirection() { return direction; }
-	int getScore() { return score; }
-	float getLengthOfASide() { return lengthOfASide; }
 
+	EDirection getDirection() { return direction; }
 	virtual void setDirection(EDirection newDirection) { direction = newDirection; }
+
+	int getScore() { return score; }
+	void setScore(int amount) { score += amount; }
+
+	bool getIsAlive() { return aliveStatus; }
+	void setIsAlive(bool isAlive) { aliveStatus = isAlive; }
+
+	float getLengthOfASide() { return lengthOfASide; }
 	void moveSnake();
 	void drawSnake(sf::RenderWindow& window, sf::Color colour);
 	virtual void Update(sf::Event& event) { };
-	bool CollisionDetection();
 
 private:
 
@@ -38,5 +43,6 @@ private:
 	sf::VideoMode sizeOfScreen;
 	int score = 0;
 	float lengthOfASide = 10.0f;
+	bool aliveStatus = true;
 };
 

@@ -17,7 +17,7 @@ public:
 	void UpdateScore(BaseSnakeClass& snake);
 	void SetPlayerControl(bool control) { playerControl = control; }
 	void Update(sf::Event& event);
-	void CollisionDetection(BaseSnakeClass& snake);
+	void CollisionDetection(BaseSnakeClass& snake, sf::VideoMode screenSize);
 
 private:
 
@@ -29,8 +29,8 @@ private:
 	Food* foodObject = nullptr;
 	bool playerControl;
 
-	//Game world has snakes?
-
-	// We want one snake reference, though if the AI controls it then the snake will be an AISnake and a PlayerSnake if player controlled.
+	// End Game Text. This will show either when the snake dies or when they win the game.
+	sf::Text endGameText;
+	sf::VideoMode sizeOfPlayableArea;
 };
 
