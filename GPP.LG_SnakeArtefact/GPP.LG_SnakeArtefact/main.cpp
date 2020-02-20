@@ -106,7 +106,7 @@ int main()
 
 			gm.DrawGameWorld(window);
 
-			// May need to tweak the actual float value for snek speed. 0.1 is normal.
+			// May need to tweak the actual float value for snek speed. 0.1 is normal. Speed up for AI play.
 			if (timeElapsed.asSeconds() > 0.1)
 			{
 				timeElapsed = clock.restart();
