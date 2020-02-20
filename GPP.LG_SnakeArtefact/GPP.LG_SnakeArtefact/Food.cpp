@@ -1,4 +1,5 @@
 #include "Food.h"
+#include <random>
 
 Food::Food()
 {
@@ -18,26 +19,28 @@ void Food::drawFood(sf::RenderWindow& window)
 void Food::spawnFood(sf::VideoMode screenSize, BaseSnakeClass& snake)
 {
 	scoreAmount = 100;
-	
-	//rectShape.setOrigin()
-	int playableWidth = screenSize.width - 100;
-	int playableHeight = screenSize.height - 100;
 
-	// I used to be doing this, this may not be the optimal solution.
-	//pickupPosition.y = (originY + 30) + rand() % (foregroundHeight - 90);
+	// Get the bounds of the play area.
+	int maxY = (screenSize.height - 60);
+	int minY = screenSize.height - (screenSize.height - 50 - (screenSize.height / 6));
+	int maxX = screenSize.width - 60;
+	int minX = 50;
 
-	float offset = (screenSize.height - 100.0f - (screenSize.height / 6.0f));
+	std::random_device rd;
+	std::mt19937 rng(rd());
+	std::uniform_int_distribution<int> uni(minY, maxY);
 
-	setPosition(screenSize.width - (screenSize.width - 100.0f), screenSize.height - offset);
-	
-	// temp.
-	sf::Vector2f bounds = sf::Vector2f(screenSize.width - 100.0f, offset);
+	// Randomly assign an x and y position for the food to spawn in that's a multiple of 10 within the bounds.
+	position.x = 50 + (((uni(rng) / 10) * 10) % (int)((screenSize.width - 60) - 50));
+	position.y = minY + (((uni(rng) / 10) * 10) % (int)(maxY - minY));
 
+	// Check if the food would spawn in a snake segment, and if it does then generate a new position until it is no longer in the snake segment.
 	for (sf::Vector2i& i : snake.getSnakeSegments())
 	{
 		while (position == i)
 		{
-			//setPosition()
+			position.x = minX + (((uni(rng) / 10) * 10) % (int)(maxX - minX));
+			position.y = minY + (((uni(rng) / 10) * 10) % (int)(maxY - minY));
 		}
 	}
 
@@ -45,6 +48,6 @@ void Food::spawnFood(sf::VideoMode screenSize, BaseSnakeClass& snake)
 	rectShape.setOutlineThickness(1.0f);
 	rectShape.setOutlineColor(sf::Color::Black);
 	rectShape.setPosition((sf::Vector2f)position);
-	
+
 	setActive(true);
 }

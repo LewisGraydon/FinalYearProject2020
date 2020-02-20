@@ -24,9 +24,9 @@ class Food
 
 	private:
 
-	sf::RectangleShape rectShape{ {10, 10} };
-	int scoreAmount;
-	bool isActive;
-	sf::Vector2i position;
+	sf::RectangleShape rectShape{ { 10, 10 } };
+	int scoreAmount = 0;
+	bool isActive = false;
+	sf::Vector2i position { 0, 0 };
 };
 

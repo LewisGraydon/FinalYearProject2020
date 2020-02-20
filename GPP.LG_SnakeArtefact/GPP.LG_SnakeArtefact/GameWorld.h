@@ -31,6 +31,6 @@ private:
 
 	// End Game Text. This will show either when the snake dies or when they win the game.
 	sf::Text endGameText;
-	sf::VideoMode sizeOfPlayableArea;
+	sf::VideoMode sizeOfScreen;
 };
 

@@ -28,8 +28,8 @@ public:
 	int getScore() { return score; }
 	void setScore(int amount) { score += amount; }
 
-	bool getIsAlive() { return aliveStatus; }
-	void setIsAlive(bool isAlive) { aliveStatus = isAlive; }
+	bool getActive() { return activeStatus; }
+	void setActive(bool isAlive) { activeStatus = isAlive; }
 
 	float getLengthOfASide() { return lengthOfASide; }
 	void moveSnake();
@@ -43,6 +43,6 @@ private:
 	sf::VideoMode sizeOfScreen;
 	int score = 0;
 	float lengthOfASide = 10.0f;
-	bool aliveStatus = true;
+	bool activeStatus = true;
 };
 

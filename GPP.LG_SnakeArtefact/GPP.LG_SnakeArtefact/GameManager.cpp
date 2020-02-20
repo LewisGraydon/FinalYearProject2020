@@ -43,8 +43,6 @@ void GameManager::SetupGameWorld(bool playerControlled)
 		gameState = EGameState::eAIPlayMode;
 		break;
 	}
-
-	
 }
 
 void GameManager::DrawMainMenu(sf::RenderWindow& window)

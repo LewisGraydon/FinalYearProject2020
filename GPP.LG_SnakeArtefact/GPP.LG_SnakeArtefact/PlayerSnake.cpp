@@ -20,6 +20,7 @@ void PlayerSnake::Update(sf::Event& event)
 	BaseSnakeClass::Update(event);
 	EDirection dir = BaseSnakeClass::getDirection();
 
+	// Switch upon the key code itself, and change the direction of the snake to be the key pressed. If the key pressed is opposite to the snake's current direction however, nothing will happen.
 	switch (event.key.code)
 	{
 	case sf::Keyboard::Up:

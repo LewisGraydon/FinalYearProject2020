@@ -1,18 +1,21 @@
 #include "GameWorld.h"
 #include <sstream>
 
-GameWorld::GameWorld(sf::Font& font,  sf::VideoMode screenSize) : sizeOfPlayableArea(screenSize)
+GameWorld::GameWorld(sf::Font& font,  sf::VideoMode screenSize) : sizeOfScreen(screenSize)
 {
+	// Set up the background.
 	rectShape.setSize(sf::Vector2f(screenSize.width - 100.0f, screenSize.height - 100.0f));
 	rectShape.setFillColor(sf::Color::Blue);
 	rectShape.setOrigin(rectShape.getLocalBounds().width / 2, rectShape.getLocalBounds().height / 2);
 	rectShape.setPosition(sf::Vector2f(screenSize.width / 2.0f, screenSize.height / 2.0f));
 
+	// Set up the bar that will separate the playable area from the score and help text.
 	separatorRect.setSize({ screenSize.width - 100.0f, 50.0f });
 	separatorRect.setFillColor(sf::Color::Black);
 	separatorRect.setOrigin(separatorRect.getLocalBounds().width / 2, 0);
 	separatorRect.setPosition({ screenSize.width / 2.0f, screenSize.height / 6.0f });
 
+	// Set up the score text.
 	scoreText.setFont(font);
 	scoreText.setString("0");
 	scoreText.setCharacterSize(40);
@@ -20,6 +23,7 @@ GameWorld::GameWorld(sf::Font& font,  sf::VideoMode screenSize) : sizeOfPlayable
 	scoreText.setOrigin(scoreText.getLocalBounds().width / 2, scoreText.getLocalBounds().height / 2);
 	scoreText.setPosition(sf::Vector2f(screenSize.width / 2.0f, screenSize.height / 10.0f));
 
+	// Set up the help text, to inform the user how to exit to the main menu.
 	helpText.setFont(font);
 	helpText.setString("Press Esc for main menu");
 	helpText.setCharacterSize(20);
@@ -27,14 +31,13 @@ GameWorld::GameWorld(sf::Font& font,  sf::VideoMode screenSize) : sizeOfPlayable
 	helpText.setOrigin(scoreText.getLocalBounds().width / 2, scoreText.getLocalBounds().height / 2);
 	helpText.setPosition(sf::Vector2f(screenSize.width / 16.0f, screenSize.height / 10.0f));
 
+	// Set up the end game text.
 	endGameText.setFont(font);
 	endGameText.setString("");
 	endGameText.setCharacterSize(40);
 	endGameText.setFillColor(sf::Color::White);
 	endGameText.setOrigin(scoreText.getLocalBounds().width / 2, scoreText.getLocalBounds().height / 2);
 	endGameText.setPosition(sf::Vector2f(screenSize.width / 2.0f, screenSize.height / 2.0f));
-
-	//sizeOfPlayableArea.height = ;
 }
 
 GameWorld::~GameWorld()
@@ -44,6 +47,7 @@ GameWorld::~GameWorld()
 
 void GameWorld::InitialiseGameWorld(sf::VideoMode screenSize)
 {
+	// If we selected the normal play mode we will create a snake that can be controlled by the player, otherwise we will create an AI snake.
 	if (playerControl)
 	{
 		snakeCharacter = new PlayerSnake(screenSize);
@@ -53,6 +57,7 @@ void GameWorld::InitialiseGameWorld(sf::VideoMode screenSize)
 		snakeCharacter = new AISnake(screenSize);
 	}
 
+	// Spawn a piece of food in the game world.
 	foodObject = new Food();
 	foodObject->spawnFood(screenSize, *snakeCharacter);
 }
@@ -66,12 +71,28 @@ void GameWorld::DrawGameWorld(sf::RenderWindow& window)
 	window.draw(helpText);
 	snakeCharacter->drawSnake(window, sf::Color::Green);
 	
-	if (foodObject)
+	// Draw the foodObject if it's active.
+	if (foodObject->getActive())
 	{
 		foodObject->drawFood(window);
 	}
 
-	if (!snakeCharacter->getIsAlive())
+	// Get the bounds of the play area.
+	int maxY = (sizeOfScreen.height - 60);
+	int minY = sizeOfScreen.height - (sizeOfScreen.height - 50 - (sizeOfScreen.height / 6));
+	int maxX = sizeOfScreen.width - 60;
+	int minX = 50;
+
+	// If the size of the snake is the same as the amount of squares in the playable space, then they win.
+	if (snakeCharacter->getSnakeSegments().size() == (((size_t) maxX - (size_t) minX) * ((size_t) maxY - (size_t) minY)))
+	{
+		snakeCharacter->setActive(false);
+		endGameText.setString("Victory!");
+		endGameText.setOrigin(endGameText.getLocalBounds().width / 2, endGameText.getLocalBounds().height / 2);
+	}
+
+	// Show the end game text if the snake is no longer active.
+	if (!snakeCharacter->getActive())
 	{
 		window.draw(endGameText);
 	}
@@ -79,6 +100,7 @@ void GameWorld::DrawGameWorld(sf::RenderWindow& window)
 
 void GameWorld::UpdateScore(BaseSnakeClass& snake)
 {
+	// Update the score and modify the origin to accommodate the length of the scoreText increasing.
 	std::ostringstream score;
 	score << "Score: " << snake.getScore();
 	scoreText.setOrigin(scoreText.getLocalBounds().width / 2, scoreText.getLocalBounds().height / 2);
@@ -87,44 +109,48 @@ void GameWorld::UpdateScore(BaseSnakeClass& snake)
 
 void GameWorld::Update(sf::Event& event)
 {
-	if (snakeCharacter->getIsAlive())
+	// Update the snake only if it is active.
+	if (snakeCharacter->getActive())
 	{
 		snakeCharacter->Update(event);
 		snakeCharacter->moveSnake();
-		CollisionDetection(*snakeCharacter, sizeOfPlayableArea);		
+		CollisionDetection(*snakeCharacter, sizeOfScreen);		
 	}
 }
 
 void GameWorld::CollisionDetection(BaseSnakeClass& snake, sf::VideoMode screenSize)
 {
+	// Check for collision between the head of the snake and itself.
 	for (int i = 1; i < snake.getSnakeSegments().size(); i++)
 	{
 		sf::Vector2i snakeOffset = snake.getSnakeSegments()[0] - snake.getSnakeSegments()[i];
 		if ((snakeOffset.x * snakeOffset.x) + (snakeOffset.y * snakeOffset.y) < (snake.getLengthOfASide() * snake.getLengthOfASide()))
 		{
-			snake.setIsAlive(false);
+			snake.setActive(false);
 			endGameText.setString("Game Over!");
 			endGameText.setOrigin(endGameText.getLocalBounds().width / 2, endGameText.getLocalBounds().height / 2);
 		}	
 	}
 
+	// Check for collision between the snake and the four boundaries of the game world. 
 	if (snake.getSnakeSegments()[0].x < 50.0f || snake.getSnakeSegments()[0].x >= screenSize.width - 50.0f || 
 		snake.getSnakeSegments()[0].y >= screenSize.height - 50.0f || snake.getSnakeSegments()[0].y < screenSize.height - (screenSize.height - 50.0f - (screenSize.height / 6.0f))) // Has to be >= since segment origin top left.
 	{
-		snake.setIsAlive(false);
+		snake.setActive(false);
 		endGameText.setString("Game Over!");
 		endGameText.setOrigin(endGameText.getLocalBounds().width / 2, endGameText.getLocalBounds().height / 2);
 	}
 
-	if (foodObject)
+	// Check for collision between the snake head and the foodObject, but only if the food is active.
+	if (foodObject->getActive())
 	{
 		sf::Vector2i foodOffset = snake.getSnakeSegments()[0] - foodObject->getPosition();
 		if ((foodOffset.x * foodOffset.x) + (foodOffset.y * foodOffset.y) < (snake.getLengthOfASide() * snake.getLengthOfASide()))
 		{
 			snake.getSnakeSegments().push_back({ -100,-100 });
 			snake.setScore(foodObject->getScoreAmount());
-			delete foodObject;
-			foodObject = nullptr;
+			foodObject->setActive(false);
+			foodObject->spawnFood(screenSize, snake);
 		}
 	}
 }
