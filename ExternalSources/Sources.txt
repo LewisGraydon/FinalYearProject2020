@@ -1,0 +1,6 @@
+1) https://github.com/memento/GeneticAlgorithm
+2) https://towardsdatascience.com/introduction-to-genetic-algorithms-including-example-code-e396e98d8bf3
+3) https://www.geeksforgeeks.org/genetic-algorithms/
+4) https://www.geeksforgeeks.org/what-is-reinforcement-learning/
+5) http://ai.berkeley.edu/reinforcement.html
+6) http://www.incompleteideas.net/RLinterface/RLI-Cplusplus.html
