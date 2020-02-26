@@ -4,3 +4,12 @@
 4) https://www.geeksforgeeks.org/what-is-reinforcement-learning/
 5) http://ai.berkeley.edu/reinforcement.html
 6) http://www.incompleteideas.net/RLinterface/RLI-Cplusplus.html
+
+// OpenGA
+7) https://github.com/Arash-codedev/openGA
+8) https://www.researchgate.net/publication/320944800_openGA_a_C_Genetic_Algorithm_library
+9)https://github.com/Arash-codedev/openGA/blob/master/openGA.pdf
+10) http://www.jmlr.org/papers/volume14/frezza-buet13a/frezza-buet13a.pdf
+
+11) https://github.com/Code-Bullet/SnakeFusion
+12) https://developers.google.com/machine-learning/crash-course
