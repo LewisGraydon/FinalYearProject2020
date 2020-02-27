@@ -5,3 +5,5 @@
 5) https://github.com/Code-Bullet/SnakeFusion
 6) https://developers.google.com/machine-learning/crash-course
 7) https://www.freecodecamp.org/news/an-introduction-to-q-learning-reinforcement-learning-14ac0b4493cc/
+8) https://blog.floydhub.com/an-introduction-to-q-learning-reinforcement-learning/
+9) https://github.com/jinfagang/Q-Learning/blob/master/main.cpp
