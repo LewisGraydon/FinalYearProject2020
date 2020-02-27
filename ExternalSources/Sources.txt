@@ -1,15 +1,7 @@
-1) https://github.com/memento/GeneticAlgorithm
-2) https://towardsdatascience.com/introduction-to-genetic-algorithms-including-example-code-e396e98d8bf3
-3) https://www.geeksforgeeks.org/genetic-algorithms/
-4) https://www.geeksforgeeks.org/what-is-reinforcement-learning/
-5) http://ai.berkeley.edu/reinforcement.html
-6) http://www.incompleteideas.net/RLinterface/RLI-Cplusplus.html
-
-// OpenGA
-7) https://github.com/Arash-codedev/openGA
-8) https://www.researchgate.net/publication/320944800_openGA_a_C_Genetic_Algorithm_library
-9)https://github.com/Arash-codedev/openGA/blob/master/openGA.pdf
-10) http://www.jmlr.org/papers/volume14/frezza-buet13a/frezza-buet13a.pdf
-
-11) https://github.com/Code-Bullet/SnakeFusion
-12) https://developers.google.com/machine-learning/crash-course
+1) https://www.geeksforgeeks.org/what-is-reinforcement-learning/
+2) http://ai.berkeley.edu/reinforcement.html
+3) http://www.incompleteideas.net/RLinterface/RLI-Cplusplus.html
+4) http://www.jmlr.org/papers/volume14/frezza-buet13a/frezza-buet13a.pdf
+5) https://github.com/Code-Bullet/SnakeFusion
+6) https://developers.google.com/machine-learning/crash-course
+7) https://www.freecodecamp.org/news/an-introduction-to-q-learning-reinforcement-learning-14ac0b4493cc/

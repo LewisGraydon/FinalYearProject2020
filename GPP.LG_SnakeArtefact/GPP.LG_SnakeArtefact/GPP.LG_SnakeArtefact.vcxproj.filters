@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\ExternalSources">
+      <UniqueIdentifier>{4e1ebf57-350d-4251-afd7-b08e3b7cf5af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -67,6 +70,69 @@
     </ClInclude>
     <ClInclude Include="Food.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rl.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlActorCritic.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlAlgo.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rl-boyan-chain.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rl-cliff-walking.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlConcept.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlEpisode.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlException.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rl-garnet.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rl-inverted-pendulum.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlKTD.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlLSTD.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlMLP.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rl-mountain-car.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlOffPAPI.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlPolicy.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlQLearning.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlSARSA.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlTD.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlTraits.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\rlTypes.hpp">
+      <Filter>Source Files\ExternalSources</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

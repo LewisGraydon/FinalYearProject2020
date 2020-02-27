@@ -4,7 +4,7 @@
 GameWorld::GameWorld(sf::Font& font,  sf::VideoMode screenSize) : sizeOfScreen(screenSize)
 {
 	// Set up the background.
-	rectShape.setSize(sf::Vector2f(screenSize.width - 100.0f, screenSize.height - 100.0f));
+	rectShape.setSize(sf::Vector2f(screenSize.width - 700.0f, screenSize.height - 100.0f));
 	rectShape.setFillColor(sf::Color::Blue);
 	rectShape.setOrigin(rectShape.getLocalBounds().width / 2, rectShape.getLocalBounds().height / 2);
 	rectShape.setPosition(sf::Vector2f(screenSize.width / 2.0f, screenSize.height / 2.0f));
@@ -29,7 +29,7 @@ GameWorld::GameWorld(sf::Font& font,  sf::VideoMode screenSize) : sizeOfScreen(s
 	helpText.setCharacterSize(20);
 	helpText.setFillColor(sf::Color::White);
 	helpText.setOrigin(scoreText.getLocalBounds().width / 2, scoreText.getLocalBounds().height / 2);
-	helpText.setPosition(sf::Vector2f(screenSize.width / 16.0f, screenSize.height / 10.0f));
+	helpText.setPosition(sf::Vector2f(screenSize.width / 4.0f, screenSize.height / 10.0f));
 
 	// Set up the end game text.
 	endGameText.setFont(font);
@@ -133,7 +133,7 @@ void GameWorld::CollisionDetection(BaseSnakeClass& snake, sf::VideoMode screenSi
 	}
 
 	// Check for collision between the snake and the four boundaries of the game world. 
-	if (snake.getSnakeSegments()[0].x < 50.0f || snake.getSnakeSegments()[0].x >= screenSize.width - 50.0f || 
+	if (snake.getSnakeSegments()[0].x < 350.0f || snake.getSnakeSegments()[0].x >= screenSize.width - 350.0f || 
 		snake.getSnakeSegments()[0].y >= screenSize.height - 50.0f || snake.getSnakeSegments()[0].y < screenSize.height - (screenSize.height - 50.0f - (screenSize.height / 6.0f))) // Has to be >= since segment origin top left.
 	{
 		snake.setActive(false);
