@@ -8,3 +8,7 @@
 8) https://blog.floydhub.com/an-introduction-to-q-learning-reinforcement-learning/
 9) https://github.com/jinfagang/Q-Learning/blob/master/main.cpp
 10) https://towardsdatascience.com/reinforcement-learning-tutorial-part-3-basic-deep-q-learning-186164c3bf4
+11) http://mnemstudio.org/path-finding-q-learning-tutorial.htm
+12) http://mnemstudio.org/ai/path/q_learning_cpp_ex1.txt
+13) https://blog.valohai.com/reinforcement-learning-tutorial-part-1-q-learning
+14) https://towardsdatascience.com/reinforcement-learning-101-e24b50e1d292

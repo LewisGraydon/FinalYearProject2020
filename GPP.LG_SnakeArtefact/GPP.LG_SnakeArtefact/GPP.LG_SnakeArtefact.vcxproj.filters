@@ -45,6 +45,9 @@
     <ClCompile Include="Food.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ReinforcementLearning.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -133,6 +136,9 @@
     </ClInclude>
     <ClInclude Include="ExternalSources\rlTypes.hpp">
       <Filter>Source Files\ExternalSources</Filter>
+    </ClInclude>
+    <ClInclude Include="ReinforcementLearning.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
