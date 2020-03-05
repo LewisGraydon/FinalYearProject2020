@@ -2,73 +2,25 @@
 
 ReinforcementLearning::ReinforcementLearning()
 {
-	srand((unsigned)time(0));
-
-	for (int i = 0; i <= (NUMBER_OF_STATES - 1); i++) 
-	{
-		for (int j = 0; j <= (NUMBER_OF_ACTIONS - 1); j++) 
-		{
-			QTable[i][j] = 0;
-		} 
-	}
+	
 }
 
 ReinforcementLearning::~ReinforcementLearning()
 {
 }
 
-void ReinforcementLearning::Episode(int initialState)
+void ReinforcementLearning::Train()
 {
-	currentState = initialState;
-	do
-	{
-		ChooseAction();
-	} 
-	while (currentState == 5);
+	alglib::mlpcreatetrainer(10, 4, trn);
 
-	for (int i = 0; i < NUMBER_OF_STATES; i++)
-	{
-		ChooseAction();
-	}
-}
+	alglib::real_2d_array xy = "[[1,1,1],[1,2,2],[2,1,2],[2,2,4]]"; // We will read in the values from a file in this format.
+	mlpsetdataset(trn, xy, 4);
 
-void ReinforcementLearning::ChooseAction()
-{
-	int potentialAction;
-	potentialAction = GetRandomAction(NUMBER_OF_ACTIONS, 0);
+	double wstep = 0.000f;
+	alglib::ae_int_t maxits = 500;
+	alglib::mlpsetdecay(trn, 0.01f);
+	alglib::mlpsetcond(trn, wstep, maxits);
 
-	if (R[currentState][potentialAction] >= 0)
-	{
-		QTable[currentState][potentialAction] = Reward(potentialAction);
-		currentState = potentialAction;
-	}
-}
-
-int ReinforcementLearning::GetRandomAction(int upperBound, int lowerBound)
-{
-	int action;
-	bool isChoiceValid = false;
-	int range = (upperBound - lowerBound) + 1;
-
-	do
-	{
-		action = lowerBound + int(range * rand() / (RAND_MAX + 1.0));
-		if (R[currentState][action] >= -1)
-		{
-			isChoiceValid = true;
-		}
-	} 
-	while (isChoiceValid == false);
-
-	return action;
-}
-
-int ReinforcementLearning::Maximum(int state, bool returnIndexOnly)
-{
-	
-}
-
-int ReinforcementLearning::Reward(int action)
-{
-	
+	alglib::mlpcreate1(10, 5, 4, net);
+	alglib::mlptrainnetwork(trn, net, 100, rep); 
 }

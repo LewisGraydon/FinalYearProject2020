@@ -4,7 +4,7 @@
 GameWorld::GameWorld(sf::Font& font,  sf::VideoMode screenSize) : sizeOfScreen(screenSize)
 {
 	// Set up the background.
-	rectShape.setSize(sf::Vector2f(screenSize.width - 700.0f, screenSize.height - 100.0f));
+	rectShape.setSize(sf::Vector2f(screenSize.width - 1620.0f, screenSize.height - 900.0f));
 	rectShape.setFillColor(sf::Color::Blue);
 	rectShape.setOrigin(rectShape.getLocalBounds().width / 2, rectShape.getLocalBounds().height / 2);
 	rectShape.setPosition(sf::Vector2f(screenSize.width / 2.0f, screenSize.height / 2.0f));

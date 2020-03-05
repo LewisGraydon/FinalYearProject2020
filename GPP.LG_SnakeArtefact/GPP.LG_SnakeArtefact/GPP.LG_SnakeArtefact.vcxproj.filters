@@ -16,129 +16,159 @@
     <Filter Include="Source Files\ExternalSources">
       <UniqueIdentifier>{4e1ebf57-350d-4251-afd7-b08e3b7cf5af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\MainGameSource">
+      <UniqueIdentifier>{539bc669-2bc5-44c3-a803-b15b8a89738c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MainGameHeaders">
+      <UniqueIdentifier>{874531dd-7553-4d26-9887-82b8b166efdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ExternalSources\ALGLib-3.16.0">
+      <UniqueIdentifier>{7b2e7e4c-2240-4856-b32d-8378111f1d00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ExternalHeaders">
+      <UniqueIdentifier>{ce4120af-4408-4e59-800b-b7ac7a121223}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameWorld.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseSnakeClass.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerSnake.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="AISnake.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Food.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ReinforcementLearning.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerSnake.cpp">
+      <Filter>Source Files\MainGameSource</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\MainGameSource</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Source Files\MainGameSource</Filter>
+    </ClCompile>
+    <ClCompile Include="GameWorld.cpp">
+      <Filter>Source Files\MainGameSource</Filter>
+    </ClCompile>
+    <ClCompile Include="Food.cpp">
+      <Filter>Source Files\MainGameSource</Filter>
+    </ClCompile>
+    <ClCompile Include="AISnake.cpp">
+      <Filter>Source Files\MainGameSource</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseSnakeClass.cpp">
+      <Filter>Source Files\MainGameSource</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\MainGameSource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\alglib-3.16.0\src\alglibinternal.cpp">
+      <Filter>Source Files\ExternalSources\ALGLib-3.16.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\alglib-3.16.0\src\alglibmisc.cpp">
+      <Filter>Source Files\ExternalSources\ALGLib-3.16.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\alglib-3.16.0\src\ap.cpp">
+      <Filter>Source Files\ExternalSources\ALGLib-3.16.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\alglib-3.16.0\src\dataanalysis.cpp">
+      <Filter>Source Files\ExternalSources\ALGLib-3.16.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\alglib-3.16.0\src\diffequations.cpp">
+      <Filter>Source Files\ExternalSources\ALGLib-3.16.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\alglib-3.16.0\src\fasttransforms.cpp">
+      <Filter>Source Files\ExternalSources\ALGLib-3.16.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\alglib-3.16.0\src\integration.cpp">
+      <Filter>Source Files\ExternalSources\ALGLib-3.16.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\alglib-3.16.0\src\interpolation.cpp">
+      <Filter>Source Files\ExternalSources\ALGLib-3.16.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\alglib-3.16.0\src\linalg.cpp">
+      <Filter>Source Files\ExternalSources\ALGLib-3.16.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\alglib-3.16.0\src\optimization.cpp">
+      <Filter>Source Files\ExternalSources\ALGLib-3.16.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\alglib-3.16.0\src\solvers.cpp">
+      <Filter>Source Files\ExternalSources\ALGLib-3.16.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\alglib-3.16.0\src\specialfunctions.cpp">
+      <Filter>Source Files\ExternalSources\ALGLib-3.16.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\alglib-3.16.0\src\statistics.cpp">
+      <Filter>Source Files\ExternalSources\ALGLib-3.16.0</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenu.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameWorld.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseSnakeClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerSnake.h">
+    <ClInclude Include="ReinforcementLearning.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AISnake.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\MainGameHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSnakeClass.h">
+      <Filter>Header Files\MainGameHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\MainGameHeaders</Filter>
     </ClInclude>
     <ClInclude Include="Food.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\MainGameHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rl.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="GameManager.h">
+      <Filter>Header Files\MainGameHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rlActorCritic.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="GameWorld.h">
+      <Filter>Header Files\MainGameHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rlAlgo.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Header Files\MainGameHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rl-boyan-chain.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="PlayerSnake.h">
+      <Filter>Header Files\MainGameHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rl-cliff-walking.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\alglibinternal.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rlConcept.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\alglibmisc.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rlEpisode.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\ap.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rlException.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\dataanalysis.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rl-garnet.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\diffequations.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rl-inverted-pendulum.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\fasttransforms.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rlKTD.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\integration.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rlLSTD.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\interpolation.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rlMLP.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\linalg.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rl-mountain-car.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\optimization.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rlOffPAPI.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\solvers.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rlPolicy.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\specialfunctions.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rlQLearning.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\statistics.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
-    <ClInclude Include="ExternalSources\rlSARSA.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
-    </ClInclude>
-    <ClInclude Include="ExternalSources\rlTD.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
-    </ClInclude>
-    <ClInclude Include="ExternalSources\rlTraits.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
-    </ClInclude>
-    <ClInclude Include="ExternalSources\rlTypes.hpp">
-      <Filter>Source Files\ExternalSources</Filter>
-    </ClInclude>
-    <ClInclude Include="ReinforcementLearning.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\alglib-3.16.0\src\stdafx.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -150,6 +150,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\alglib-3.16.0\src\alglibinternal.cpp" />
+    <ClCompile Include="..\..\alglib-3.16.0\src\alglibmisc.cpp" />
+    <ClCompile Include="..\..\alglib-3.16.0\src\ap.cpp" />
+    <ClCompile Include="..\..\alglib-3.16.0\src\dataanalysis.cpp" />
+    <ClCompile Include="..\..\alglib-3.16.0\src\diffequations.cpp" />
+    <ClCompile Include="..\..\alglib-3.16.0\src\fasttransforms.cpp" />
+    <ClCompile Include="..\..\alglib-3.16.0\src\integration.cpp" />
+    <ClCompile Include="..\..\alglib-3.16.0\src\interpolation.cpp" />
+    <ClCompile Include="..\..\alglib-3.16.0\src\linalg.cpp" />
+    <ClCompile Include="..\..\alglib-3.16.0\src\optimization.cpp" />
+    <ClCompile Include="..\..\alglib-3.16.0\src\solvers.cpp" />
+    <ClCompile Include="..\..\alglib-3.16.0\src\specialfunctions.cpp" />
+    <ClCompile Include="..\..\alglib-3.16.0\src\statistics.cpp" />
     <ClCompile Include="AISnake.cpp" />
     <ClCompile Include="BaseSnakeClass.cpp" />
     <ClCompile Include="Button.cpp" />
@@ -162,30 +175,23 @@
     <ClCompile Include="ReinforcementLearning.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\alglib-3.16.0\src\alglibinternal.h" />
+    <ClInclude Include="..\..\alglib-3.16.0\src\alglibmisc.h" />
+    <ClInclude Include="..\..\alglib-3.16.0\src\ap.h" />
+    <ClInclude Include="..\..\alglib-3.16.0\src\dataanalysis.h" />
+    <ClInclude Include="..\..\alglib-3.16.0\src\diffequations.h" />
+    <ClInclude Include="..\..\alglib-3.16.0\src\fasttransforms.h" />
+    <ClInclude Include="..\..\alglib-3.16.0\src\integration.h" />
+    <ClInclude Include="..\..\alglib-3.16.0\src\interpolation.h" />
+    <ClInclude Include="..\..\alglib-3.16.0\src\linalg.h" />
+    <ClInclude Include="..\..\alglib-3.16.0\src\optimization.h" />
+    <ClInclude Include="..\..\alglib-3.16.0\src\solvers.h" />
+    <ClInclude Include="..\..\alglib-3.16.0\src\specialfunctions.h" />
+    <ClInclude Include="..\..\alglib-3.16.0\src\statistics.h" />
+    <ClInclude Include="..\..\alglib-3.16.0\src\stdafx.h" />
     <ClInclude Include="AISnake.h" />
     <ClInclude Include="BaseSnakeClass.h" />
     <ClInclude Include="Button.h" />
-    <ClInclude Include="ExternalSources\rl-boyan-chain.hpp" />
-    <ClInclude Include="ExternalSources\rl-cliff-walking.hpp" />
-    <ClInclude Include="ExternalSources\rl-garnet.hpp" />
-    <ClInclude Include="ExternalSources\rl-inverted-pendulum.hpp" />
-    <ClInclude Include="ExternalSources\rl-mountain-car.hpp" />
-    <ClInclude Include="ExternalSources\rl.hpp" />
-    <ClInclude Include="ExternalSources\rlActorCritic.hpp" />
-    <ClInclude Include="ExternalSources\rlAlgo.hpp" />
-    <ClInclude Include="ExternalSources\rlConcept.hpp" />
-    <ClInclude Include="ExternalSources\rlEpisode.hpp" />
-    <ClInclude Include="ExternalSources\rlException.hpp" />
-    <ClInclude Include="ExternalSources\rlKTD.hpp" />
-    <ClInclude Include="ExternalSources\rlLSTD.hpp" />
-    <ClInclude Include="ExternalSources\rlMLP.hpp" />
-    <ClInclude Include="ExternalSources\rlOffPAPI.hpp" />
-    <ClInclude Include="ExternalSources\rlPolicy.hpp" />
-    <ClInclude Include="ExternalSources\rlQLearning.hpp" />
-    <ClInclude Include="ExternalSources\rlSARSA.hpp" />
-    <ClInclude Include="ExternalSources\rlTD.hpp" />
-    <ClInclude Include="ExternalSources\rlTraits.hpp" />
-    <ClInclude Include="ExternalSources\rlTypes.hpp" />
     <ClInclude Include="Food.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameWorld.h" />

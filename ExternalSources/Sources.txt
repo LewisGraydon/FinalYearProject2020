@@ -4,11 +4,20 @@
 4) http://www.jmlr.org/papers/volume14/frezza-buet13a/frezza-buet13a.pdf
 5) https://github.com/Code-Bullet/SnakeFusion
 6) https://developers.google.com/machine-learning/crash-course
+
+// Q Learning is the wrong approach.
 7) https://www.freecodecamp.org/news/an-introduction-to-q-learning-reinforcement-learning-14ac0b4493cc/
 8) https://blog.floydhub.com/an-introduction-to-q-learning-reinforcement-learning/
 9) https://github.com/jinfagang/Q-Learning/blob/master/main.cpp
 10) https://towardsdatascience.com/reinforcement-learning-tutorial-part-3-basic-deep-q-learning-186164c3bf4
-11) http://mnemstudio.org/path-finding-q-learning-tutorial.htm
+11) http://mnemstudio.org/path-finding-q-learning-tutorial
 12) http://mnemstudio.org/ai/path/q_learning_cpp_ex1.txt
 13) https://blog.valohai.com/reinforcement-learning-tutorial-part-1-q-learning
 14) https://towardsdatascience.com/reinforcement-learning-101-e24b50e1d292
+
+15) https://towardsdatascience.com/today-im-going-to-talk-about-a-small-practical-example-of-using-neural-networks-training-one-to-6b2cbd6efdb3
+16) https://www.alglib.net/translator/man/manual.cpp.html#sub_mlptrainnetwork
+17) https://www.alglib.net/translator/man/manual.cpp.html#sub_mlpcreate1
+18) https://www.alglib.net/translator/man/manual.cpp.html#example_nn_trainerobject
+
+ALGLib.
