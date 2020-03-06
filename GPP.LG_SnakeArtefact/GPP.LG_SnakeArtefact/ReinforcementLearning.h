@@ -21,5 +21,10 @@ private:
 	alglib::mlptrainer trn;
 	alglib::multilayerperceptron net;
 	alglib::mlpreport rep;
+
+	// Something about sparse matrix may be useful?
+	alglib::sparsematrix testDataSet;
+	//alglib::sparsecreate(5, 1, testDataSet);
+	//alglib::sparseset(testDataSet, 0, 1, 1.0);
 };
 

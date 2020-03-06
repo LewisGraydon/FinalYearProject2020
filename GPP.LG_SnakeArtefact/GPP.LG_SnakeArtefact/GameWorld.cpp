@@ -4,7 +4,7 @@
 GameWorld::GameWorld(sf::Font& font,  sf::VideoMode screenSize) : sizeOfScreen(screenSize)
 {
 	// Set up the background.
-	rectShape.setSize(sf::Vector2f(screenSize.width - 1620.0f, screenSize.height - 900.0f));
+	rectShape.setSize(sf::Vector2f(/*screenSize.width - 1620.0f*/ 400.0f, /*screenSize.height - 900.0f*/ 400.0f));
 	rectShape.setFillColor(sf::Color::Blue);
 	rectShape.setOrigin(rectShape.getLocalBounds().width / 2, rectShape.getLocalBounds().height / 2);
 	rectShape.setPosition(sf::Vector2f(screenSize.width / 2.0f, screenSize.height / 2.0f));
@@ -38,6 +38,9 @@ GameWorld::GameWorld(sf::Font& font,  sf::VideoMode screenSize) : sizeOfScreen(s
 	endGameText.setFillColor(sf::Color::White);
 	endGameText.setOrigin(scoreText.getLocalBounds().width / 2, scoreText.getLocalBounds().height / 2);
 	endGameText.setPosition(sf::Vector2f(screenSize.width / 2.0f, screenSize.height / 2.0f));
+
+	minGameBounds = { (int)(screenSize.width / 2 - (rectShape.getSize().x / 2)), (int)(screenSize.height / 2 - (rectShape.getSize().y / 2)) };
+	maxGameBounds = { (int)(screenSize.width / 2 + (rectShape.getSize().x / 2)), (int)(screenSize.height / 2 + (rectShape.getSize().y / 2)) };
 }
 
 GameWorld::~GameWorld()
@@ -59,7 +62,7 @@ void GameWorld::InitialiseGameWorld(sf::VideoMode screenSize)
 
 	// Spawn a piece of food in the game world.
 	foodObject = new Food();
-	foodObject->spawnFood(screenSize, *snakeCharacter);
+	foodObject->spawnFood(minGameBounds, maxGameBounds, *snakeCharacter);
 }
 
 void GameWorld::DrawGameWorld(sf::RenderWindow& window)
@@ -77,14 +80,8 @@ void GameWorld::DrawGameWorld(sf::RenderWindow& window)
 		foodObject->drawFood(window);
 	}
 
-	// Get the bounds of the play area.
-	int maxY = (sizeOfScreen.height - 60);
-	int minY = sizeOfScreen.height - (sizeOfScreen.height - 50 - (sizeOfScreen.height / 6));
-	int maxX = sizeOfScreen.width - 60;
-	int minX = 50;
-
 	// If the size of the snake is the same as the amount of squares in the playable space, then they win.
-	if (snakeCharacter->getSnakeSegments().size() == (((size_t) maxX - (size_t) minX) * ((size_t) maxY - (size_t) minY)))
+	if (snakeCharacter->getSnakeSegments().size() == (((size_t) maxGameBounds.x - (size_t) minGameBounds.x) * ((size_t) maxGameBounds.y - (size_t) minGameBounds.y)))
 	{
 		snakeCharacter->setActive(false);
 		endGameText.setString("Victory!");
@@ -133,8 +130,8 @@ void GameWorld::CollisionDetection(BaseSnakeClass& snake, sf::VideoMode screenSi
 	}
 
 	// Check for collision between the snake and the four boundaries of the game world. 
-	if (snake.getSnakeSegments()[0].x < 350.0f || snake.getSnakeSegments()[0].x >= screenSize.width - 350.0f || 
-		snake.getSnakeSegments()[0].y >= screenSize.height - 50.0f || snake.getSnakeSegments()[0].y < screenSize.height - (screenSize.height - 50.0f - (screenSize.height / 6.0f))) // Has to be >= since segment origin top left.
+	if (snake.getSnakeSegments()[0].x < minGameBounds.x || snake.getSnakeSegments()[0].x >= maxGameBounds.x || 
+		snake.getSnakeSegments()[0].y >= maxGameBounds.y || snake.getSnakeSegments()[0].y < minGameBounds.y) // Has to be >= since segment origin top left.
 	{
 		snake.setActive(false);
 		endGameText.setString("Game Over!");
@@ -150,7 +147,7 @@ void GameWorld::CollisionDetection(BaseSnakeClass& snake, sf::VideoMode screenSi
 			snake.getSnakeSegments().push_back({ -100,-100 });
 			snake.setScore(foodObject->getScoreAmount());
 			foodObject->setActive(false);
-			foodObject->spawnFood(screenSize, snake);
+			foodObject->spawnFood(minGameBounds, maxGameBounds, snake);
 		}
 	}
 }

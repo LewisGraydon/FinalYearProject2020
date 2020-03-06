@@ -23,4 +23,6 @@ void ReinforcementLearning::Train()
 
 	alglib::mlpcreate1(10, 5, 4, net);
 	alglib::mlptrainnetwork(trn, net, 100, rep); 
+
+	//Save the network
 }

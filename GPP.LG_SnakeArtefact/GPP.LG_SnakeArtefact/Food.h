@@ -10,7 +10,7 @@ class Food
 	~Food();
 
 	void drawFood(sf::RenderWindow& window);
-	void spawnFood(sf::VideoMode screenSize, BaseSnakeClass& snake);
+	void spawnFood(sf::Vector2i minGameBounds, sf::Vector2i maxGameBounds, BaseSnakeClass& snake);
 
 	int getScoreAmount() { return scoreAmount; }
 	bool getActive() { return isActive; }
