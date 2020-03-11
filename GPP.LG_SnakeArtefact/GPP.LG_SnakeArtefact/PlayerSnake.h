@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+#include <fstream>
 #include "BaseSnakeClass.h"
 
 class PlayerSnake : public BaseSnakeClass
@@ -9,8 +11,9 @@ public:
 
 	void setDirection(EDirection newDirection);
 	void Update(sf::Event& event);
+	void SaveData(std::string outputString);
+	
 
 private:
-
 };
 

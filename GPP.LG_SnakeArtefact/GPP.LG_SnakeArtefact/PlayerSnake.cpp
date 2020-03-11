@@ -5,6 +5,7 @@ PlayerSnake::PlayerSnake(sf::VideoMode screenSize) : BaseSnakeClass(screenSize)
 
 }
 
+
 PlayerSnake::~PlayerSnake()
 {
 
@@ -28,6 +29,8 @@ void PlayerSnake::Update(sf::Event& event)
 		if (dir != BaseSnakeClass::eDown && dir != BaseSnakeClass::eNone)
 		{
 			setDirection(BaseSnakeClass::eUp);
+			SaveData("Up");
+			
 		}
 		break;
 
@@ -36,6 +39,7 @@ void PlayerSnake::Update(sf::Event& event)
 		if (dir != BaseSnakeClass::eUp)
 		{
 			setDirection(BaseSnakeClass::eDown);
+			SaveData("Down");
 		}
 		break;
 
@@ -44,6 +48,7 @@ void PlayerSnake::Update(sf::Event& event)
 		if (dir != BaseSnakeClass::eRight)
 		{
 			setDirection(BaseSnakeClass::eLeft);
+			SaveData("Left");
 		}
 		break;
 
@@ -52,10 +57,23 @@ void PlayerSnake::Update(sf::Event& event)
 		if (dir != BaseSnakeClass::eLeft)
 		{
 			setDirection(BaseSnakeClass::eRight);
+			SaveData("Right");
 		}
 		break;
 
 	default:
 		break;
+	}
+}
+
+void PlayerSnake::SaveData(std::string outputString)
+{
+	std::fstream outputData;
+	outputData.open("outputData.txt", std::ios::in | std::ios::out | std::ios::app); // opens the file
+
+	if (outputData.is_open())
+	{
+		outputData << outputString << std::endl;
+		outputData.close();
 	}
 }
