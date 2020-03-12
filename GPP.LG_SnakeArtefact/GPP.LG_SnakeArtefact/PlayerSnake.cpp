@@ -69,11 +69,15 @@ void PlayerSnake::Update(sf::Event& event)
 void PlayerSnake::SaveData(std::string outputString)
 {
 	std::fstream outputData;
-	outputData.open("outputData.txt", std::ios::in | std::ios::out | std::ios::app); // opens the file
+	outputData.open("outputData.txt", std::ios::in | std::ios::out | std::ios::app);
 
-	if (outputData.is_open())
+	if (outputData.good())
 	{
 		outputData << outputString << std::endl;
 		outputData.close();
+	}
+	else
+	{
+		std::cerr << "Unable to open file" << std::endl;
 	}
 }
