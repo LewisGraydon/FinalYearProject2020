@@ -34,7 +34,7 @@ public:
 	float getLengthOfASide() { return lengthOfASide; }
 	void moveSnake();
 	void drawSnake(sf::RenderWindow& window, sf::Color colour);
-	virtual void Update(sf::Event& event) { };
+	virtual void Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMode screenSize) { };
 
 private:
 

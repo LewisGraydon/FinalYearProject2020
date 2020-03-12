@@ -110,7 +110,7 @@ int main()
 			if (timeElapsed.asSeconds() > 0.1)
 			{
 				timeElapsed = clock.restart();
-				gm.getGameWorld().Update(event);
+				gm.getGameWorld().Update(event, window);
 			}
 			
 			break;

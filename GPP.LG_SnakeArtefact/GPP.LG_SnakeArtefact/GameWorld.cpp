@@ -53,7 +53,7 @@ void GameWorld::InitialiseGameWorld(sf::VideoMode screenSize)
 	// If we selected the normal play mode we will create a snake that can be controlled by the player, otherwise we will create an AI snake.
 	if (playerControl)
 	{
-		snakeCharacter = new PlayerSnake(screenSize);
+		snakeCharacter = new PlayerSnake(screenSize, minGameBounds, maxGameBounds);
 	}
 	else
 	{
@@ -104,12 +104,12 @@ void GameWorld::UpdateScore(BaseSnakeClass& snake)
 	scoreText.setString(score.str());
 }
 
-void GameWorld::Update(sf::Event& event)
+void GameWorld::Update(sf::Event& event, sf::RenderWindow& window)
 {
 	// Update the snake only if it is active.
 	if (snakeCharacter->getActive())
 	{
-		snakeCharacter->Update(event);
+		snakeCharacter->Update(event, window, sizeOfScreen);
 		snakeCharacter->moveSnake();
 		CollisionDetection(*snakeCharacter, sizeOfScreen);		
 	}

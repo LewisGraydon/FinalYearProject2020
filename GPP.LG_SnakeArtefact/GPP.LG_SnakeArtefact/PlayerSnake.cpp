@@ -1,6 +1,10 @@
 #include "PlayerSnake.h"
 
-PlayerSnake::PlayerSnake(sf::VideoMode screenSize) : BaseSnakeClass(screenSize)
+#define NUM_COLUMNS 40
+#define NUM_ROWS 40
+#define TILE_LENGTH 10
+
+PlayerSnake::PlayerSnake(sf::VideoMode screenSize, sf::Vector2i minBounds, sf::Vector2i maxBounds) : BaseSnakeClass(screenSize), minGameBounds(minBounds), maxGameBounds(maxBounds)
 {
 
 }
@@ -16,9 +20,9 @@ void PlayerSnake::setDirection(EDirection newDirection)
 	BaseSnakeClass::setDirection(newDirection);
 }
 
-void PlayerSnake::Update(sf::Event& event)
+void PlayerSnake::Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMode screenSize)
 {
-	BaseSnakeClass::Update(event);
+	BaseSnakeClass::Update(event, window, screenSize);
 	EDirection dir = BaseSnakeClass::getDirection();
 
 	// Switch upon the key code itself, and change the direction of the snake to be the key pressed. If the key pressed is opposite to the snake's current direction however, nothing will happen.
@@ -28,9 +32,11 @@ void PlayerSnake::Update(sf::Event& event)
 
 		if (dir != BaseSnakeClass::eDown && dir != BaseSnakeClass::eNone)
 		{
-			setDirection(BaseSnakeClass::eUp);
-			SaveData("Up");
-			
+			if (getDirection() != EDirection::eUp)
+			{
+				setDirection(BaseSnakeClass::eUp);
+				SaveData(window, screenSize);
+			}
 		}
 		break;
 
@@ -38,8 +44,11 @@ void PlayerSnake::Update(sf::Event& event)
 
 		if (dir != BaseSnakeClass::eUp)
 		{
-			setDirection(BaseSnakeClass::eDown);
-			SaveData("Down");
+			if (getDirection() != EDirection::eDown)
+			{
+				setDirection(BaseSnakeClass::eDown);
+				SaveData(window, screenSize);
+			}
 		}
 		break;
 
@@ -47,8 +56,11 @@ void PlayerSnake::Update(sf::Event& event)
 
 		if (dir != BaseSnakeClass::eRight)
 		{
-			setDirection(BaseSnakeClass::eLeft);
-			SaveData("Left");
+			if (getDirection() != EDirection::eLeft)
+			{
+				setDirection(BaseSnakeClass::eLeft);
+				SaveData(window, screenSize);
+			}
 		}
 		break;
 
@@ -56,8 +68,11 @@ void PlayerSnake::Update(sf::Event& event)
 
 		if (dir != BaseSnakeClass::eLeft)
 		{
-			setDirection(BaseSnakeClass::eRight);
-			SaveData("Right");
+			if (getDirection() != EDirection::eRight)
+			{
+				setDirection(BaseSnakeClass::eRight);
+				SaveData(window, screenSize);
+			}
 		}
 		break;
 
@@ -66,13 +81,83 @@ void PlayerSnake::Update(sf::Event& event)
 	}
 }
 
-void PlayerSnake::SaveData(std::string outputString)
+void PlayerSnake::SaveData(sf::RenderWindow& window, sf::VideoMode screenSize)
 {
 	std::fstream outputData;
 	outputData.open("outputData.txt", std::ios::in | std::ios::out | std::ios::app);
 
 	if (outputData.good())
 	{
+		int actionArray[4] = { 0, 0, 0, 0 };
+		int dataArray[NUM_ROWS * NUM_COLUMNS] = { };
+		sf::Texture tex;
+		tex.create(screenSize.width, screenSize.height);
+		tex.update(window);
+		sf::Image screenshot = tex.copyToImage();
+
+		switch (getDirection())
+		{
+			case EDirection::eUp:
+				actionArray[0] = 1;
+				break;
+
+			case EDirection::eDown:
+				actionArray[1] = 1;
+				break;
+
+			case EDirection::eLeft:
+				actionArray[2] = 1;
+				break;
+
+			case EDirection::eRight:
+				actionArray[3] = 1;
+				break;
+
+			default:
+				break;
+		}
+		
+		for (int y = 0; y < NUM_COLUMNS; y++)
+		{
+			for (int x = 0; x < NUM_ROWS; x++)
+			{
+				sf::Color col = screenshot.getPixel(minGameBounds.x + TILE_LENGTH / 2 + x * TILE_LENGTH, minGameBounds.y + TILE_LENGTH / 2 + y * TILE_LENGTH);
+				if (col == sf::Color::Blue)
+				{
+					dataArray[x + NUM_ROWS * y] = 0;
+				}
+
+				if (col == sf::Color::Green || col == sf::Color::Red)
+				{
+					dataArray[x + NUM_ROWS * y] = -1;
+				}
+
+				if (col == sf::Color::Magenta)
+				{
+					dataArray[x + NUM_ROWS * y] = 1;
+				}
+			}
+		}
+
+		std::string outputString = "";
+		
+		for (int count = 0; count < sizeof(dataArray) / sizeof(dataArray[0]); count++)
+		{
+			outputString.append(std::to_string(dataArray[count]) + ", ");
+		}
+
+		for (int count = 0; count < sizeof(actionArray) / sizeof(actionArray[0]); count++)
+		{
+			if (count < sizeof(actionArray) / sizeof(actionArray[0]) - 1)
+			{
+				outputString.append(std::to_string(actionArray[count] )+ ", ");
+			}
+			else
+			{
+				outputString.append(std::to_string(actionArray[count]));
+			}
+		}
+
 		outputData << outputString << std::endl;
 		outputData.close();
 	}

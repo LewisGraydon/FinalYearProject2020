@@ -16,7 +16,7 @@ public:
 	void DrawGameWorld(sf::RenderWindow& window);
 	void UpdateScore(BaseSnakeClass& snake);
 	void SetPlayerControl(bool control) { playerControl = control; }
-	void Update(sf::Event& event);
+	void Update(sf::Event& event, sf::RenderWindow& window);
 	void CollisionDetection(BaseSnakeClass& snake, sf::VideoMode screenSize);
 
 private:
