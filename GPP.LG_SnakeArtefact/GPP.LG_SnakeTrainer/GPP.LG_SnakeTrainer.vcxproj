@@ -123,6 +123,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\alglibinternal.cpp" />
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\alglibmisc.cpp" />
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\ap.cpp" />
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\dataanalysis.cpp" />
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\diffequations.cpp" />
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\fasttransforms.cpp" />
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\integration.cpp" />
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\interpolation.cpp" />
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\linalg.cpp" />
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\optimization.cpp" />
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\solvers.cpp" />
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\specialfunctions.cpp" />
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\statistics.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\alglibinternal.h" />
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\alglibmisc.h" />
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\ap.h" />
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\dataanalysis.h" />
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\diffequations.h" />
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\fasttransforms.h" />
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\integration.h" />
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\interpolation.h" />
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\linalg.h" />
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\optimization.h" />
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\solvers.h" />
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\specialfunctions.h" />
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\statistics.h" />
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

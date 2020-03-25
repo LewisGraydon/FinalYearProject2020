@@ -13,5 +13,99 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\ExternalSources">
+      <UniqueIdentifier>{ddb771bf-642e-4829-be27-b8fdc49456d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ExternalHeaders">
+      <UniqueIdentifier>{169e266f-f14e-4d71-811d-aaea94ccb92a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\alglibinternal.cpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\alglibmisc.cpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\ap.cpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\dataanalysis.cpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\diffequations.cpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\fasttransforms.cpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\integration.cpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\interpolation.cpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\linalg.cpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\optimization.cpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\solvers.cpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\specialfunctions.cpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ExternalSources\ALGLib-3.16.0\statistics.cpp">
+      <Filter>Source Files\ExternalSources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\alglibinternal.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\alglibmisc.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\ap.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\dataanalysis.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\diffequations.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\fasttransforms.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\integration.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\interpolation.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\linalg.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\optimization.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\solvers.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\specialfunctions.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\statistics.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ExternalSources\ALGLib-3.16.0\stdafx.h">
+      <Filter>Header Files\ExternalHeaders</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
