@@ -84,11 +84,11 @@ void PlayerSnake::Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMo
 void PlayerSnake::SaveData(sf::RenderWindow& window, sf::VideoMode screenSize)
 {
 	std::fstream outputData;
-	outputData.open("outputData.txt", std::ios::in | std::ios::out | std::ios::app);
+	outputData.open("outputDataVersion2.txt", std::ios::in | std::ios::out | std::ios::app);
 
 	if (outputData.good())
 	{
-		int actionArray[4] = { 0, 0, 0, 0 };
+		int actionArray[1] = { 0 };
 		int dataArray[NUM_ROWS * NUM_COLUMNS] = { };
 		sf::Texture tex;
 		tex.create(screenSize.width, screenSize.height);
@@ -98,19 +98,19 @@ void PlayerSnake::SaveData(sf::RenderWindow& window, sf::VideoMode screenSize)
 		switch (getDirection())
 		{
 			case EDirection::eUp:
-				actionArray[0] = 1;
+				actionArray[0] = 0;
 				break;
 
 			case EDirection::eDown:
-				actionArray[1] = 1;
+				actionArray[0] = 1;
 				break;
 
 			case EDirection::eLeft:
-				actionArray[2] = 1;
+				actionArray[0] = 2;
 				break;
 
 			case EDirection::eRight:
-				actionArray[3] = 1;
+				actionArray[0] = 3;
 				break;
 
 			default:
@@ -146,17 +146,7 @@ void PlayerSnake::SaveData(sf::RenderWindow& window, sf::VideoMode screenSize)
 			outputString.append(std::to_string(dataArray[count]) + ", ");
 		}
 
-		for (int count = 0; count < sizeof(actionArray) / sizeof(actionArray[0]); count++)
-		{
-			if (count < sizeof(actionArray) / sizeof(actionArray[0]) - 1)
-			{
-				outputString.append(std::to_string(actionArray[count] )+ ", ");
-			}
-			else
-			{
-				outputString.append(std::to_string(actionArray[count]));
-			}
-		}
+		outputString.append(std::to_string(actionArray[0]) + ";");
 
 		outputData << outputString << std::endl;
 		outputData.close();

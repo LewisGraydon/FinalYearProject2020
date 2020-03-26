@@ -19,5 +19,9 @@
 16) https://www.alglib.net/translator/man/manual.cpp.html#sub_mlptrainnetwork
 17) https://www.alglib.net/translator/man/manual.cpp.html#sub_mlpcreate1
 18) https://www.alglib.net/translator/man/manual.cpp.html#example_nn_trainerobject
+19) https://www.heatonresearch.com/2017/06/01/hidden-layers.html;
 
 ALGLib.
+
+20x20 reduce complexity of data set - 400
+40x40 - 1600.
