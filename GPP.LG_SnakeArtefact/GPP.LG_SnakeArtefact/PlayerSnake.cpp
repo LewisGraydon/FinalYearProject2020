@@ -1,7 +1,7 @@
 #include "PlayerSnake.h"
 
-#define NUM_COLUMNS 40
-#define NUM_ROWS 40
+#define NUM_COLUMNS 20
+#define NUM_ROWS 20
 #define TILE_LENGTH 10
 
 PlayerSnake::PlayerSnake(sf::VideoMode screenSize, sf::Vector2i minBounds, sf::Vector2i maxBounds) : BaseSnakeClass(screenSize), minGameBounds(minBounds), maxGameBounds(maxBounds)

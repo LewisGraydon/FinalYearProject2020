@@ -27,14 +27,20 @@ void Food::spawnFood(sf::Vector2i minGameBounds, sf::Vector2i maxGameBounds, Bas
 	// Randomly assign an x and y position for the food to spawn in that's a multiple of 10 within the bounds.
 	position.x = minGameBounds.x + (((uni(rng) / 10) * 10) % (int)(maxGameBounds.x - 10 - minGameBounds.x));
 	position.y = minGameBounds.y + (((uni(rng) / 10) * 10) % (int)(maxGameBounds.y - 10 - minGameBounds.y));
+	bool checkPosAgainstSegments = true;
 
-	// Check if the food would spawn in a snake segment, and if it does then generate a new position until it is no longer in the snake segment.
-	for (sf::Vector2i& i : snake.getSnakeSegments())
+	while (checkPosAgainstSegments)
 	{
-		while (position == i)
-		{
-			position.x = minGameBounds.x + (((uni(rng) / 10) * 10) % (int)(maxGameBounds.x - 10 - minGameBounds.x));
-			position.y = minGameBounds.y + (((uni(rng) / 10) * 10) % (int)(maxGameBounds.y - 10- minGameBounds.y));
+		checkPosAgainstSegments = false;
+		// Check if the food would spawn in a snake segment, and if it does then generate a new position until it is no longer in the snake segment.
+		for (sf::Vector2i& i : snake.getSnakeSegments())
+		{		
+			while (position == i)
+			{
+				position.x = minGameBounds.x + (((uni(rng) / 10) * 10) % (int)(maxGameBounds.x - 10 - minGameBounds.x));
+				position.y = minGameBounds.y + (((uni(rng) / 10) * 10) % (int)(maxGameBounds.y - 10 - minGameBounds.y));
+				checkPosAgainstSegments = true;
+			}			
 		}
 	}
 
