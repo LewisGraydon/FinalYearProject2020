@@ -14,38 +14,23 @@ int main()
 
 	alglib::real_2d_array xy;	// Okay, this should be the inputs from the data set. I.e. the first array will be the first data set, ending with a number
 																		// between 1 and 3 as well as a ; on the end which will be used to tell the program to use next line.
-	xy.setlength(10828, 1601);
+	xy.setlength(10015, 401);
 
-	std::ifstream inFile("outputDataVersion2.txt");
+	std::ifstream inFile("outputDataVersion2MatLab.txt");
 	
 	int count = 0;
 
 	std::string line;
 	while (std::getline(inFile, line,','))
 	{
-		std::cout << "The value is" << std::stof(line) << std::endl;
-		/*std::istringstream iss (line);
-		std::vector<double> vect;
+		std::cout << "Count: " << count << "The value is " << std::stof(line) << std::endl;
 
-		for (int i; iss >> i;)
+	/*	for (int j = 0; j < line.length(); j++)
 		{
-			vect.push_back(i);
-			if (iss.peek() == ',')
-			{
-				iss.ignore();
-			}
-			if (iss.peek() == ';')
-			{
-				iss.ignore();
-			}
+			xy(count, j) = line.at(j);
+		}*/
 
-			for (int j = 0; j < vect.size(); j++)
-			{
-				xy(count, j) = vect.at(j);
-			}
-
-			count++;
-		}		*/
+		count++;
 	}
 
 	alglib::mlpsetdataset(trn, xy, 4);
