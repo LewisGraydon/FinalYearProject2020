@@ -10,28 +10,38 @@
 int main()
 {
 	alglib::mlptrainer trn;
-	alglib::mlpcreatetrainer(400, 4, trn);
+	alglib::mlpcreatetrainer(400, 1, trn);
 
 	alglib::real_2d_array xy;	// Okay, this should be the inputs from the data set. I.e. the first array will be the first data set, ending with a number
 																		// between 1 and 3 as well as a ; on the end which will be used to tell the program to use next line.
 	xy.setlength(10015, 401);
 
-	std::ifstream inFile("outputDataVersion2MatLab.txt");
+	std::ifstream inFile("outputDataVersion2MatLab.txt", std::ios::in);
 	
 	int count = 0;
+	int columnCount = 0;
 
 	std::string line;
-	while (std::getline(inFile, line,','))
+	while (std::getline(inFile, line, ','))
 	{
-		std::cout << "Count: " << count << "The value is " << std::stof(line) << std::endl;
+		std::cout << "Row Count: " << count << ", Column Count:" << columnCount << ", The value is: " << std::stof(line) << std::endl;
 
-	/*	for (int j = 0; j < line.length(); j++)
+		xy(count, columnCount) = std::stof(line);
+		columnCount++;
+
+		if (columnCount == 401)
 		{
-			xy(count, j) = line.at(j);
-		}*/
+			if (count == 10015)
+			{
+				break;
+			}
 
-		count++;
+			columnCount = 0;
+			count++;
+		}	
 	}
+
+	inFile.close();
 
 	alglib::mlpsetdataset(trn, xy, 4);
 
