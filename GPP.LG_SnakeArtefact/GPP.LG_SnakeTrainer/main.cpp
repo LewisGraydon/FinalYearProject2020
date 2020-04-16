@@ -29,9 +29,9 @@ int main()
 		xy(count, columnCount) = std::stof(line);
 		columnCount++;
 
-		if (columnCount == 401)
+		if (columnCount > 400)
 		{
-			if (count == 10015)
+			if (count > 10014)
 			{
 				break;
 			}
@@ -53,7 +53,7 @@ int main()
 	alglib::multilayerperceptron net;
 	alglib::mlpreport rep;
 
-	alglib::mlpcreate1(400, 270, 4, net); // paramaters = { number inputs, number hidden neurons, number outputs, output network}; // Number of hidden neurons = ~2/3 input layers + output layers.
+	alglib::mlpcreate1(400, 270, 1, net); // paramaters = { number inputs, number hidden neurons, number outputs, output network}; // Number of hidden neurons = ~2/3 input layers + output layers.
 	alglib::mlptrainnetwork(trn, net, 100, rep); // parameters = { trainer object, network, number of restarts, report};
 
 	return 0;
