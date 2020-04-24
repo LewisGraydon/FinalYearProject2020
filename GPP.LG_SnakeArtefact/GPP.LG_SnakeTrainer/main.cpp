@@ -5,7 +5,6 @@
 #include "ExternalSources/ALGLib-3.16.0/stdafx.h"
 
 #include <fstream>
-#include <sstream>
 
 int main()
 {
@@ -16,7 +15,7 @@ int main()
 																		// between 1 and 3 as well as a ; on the end which will be used to tell the program to use next line.
 	xy.setlength(10015, 401);
 
-	std::ifstream inFile("outputDataVersion2MatLab.txt", std::ios::in);
+	std::ifstream inFile("outputData.txt", std::ios::in);
 	
 	int count = 0;
 	int columnCount = 0;
@@ -55,6 +54,15 @@ int main()
 
 	alglib::mlpcreate1(400, 270, 1, net); // paramaters = { number inputs, number hidden neurons, number outputs, output network}; // Number of hidden neurons = ~2/3 input layers + output layers.
 	alglib::mlptrainnetwork(trn, net, 100, rep); // parameters = { trainer object, network, number of restarts, report};
+
+	// Writing the network to a file?
+	std::ofstream outputData;
+	outputData.open("trainedNetwork100Restarts.txt", std::ios::out);
+
+	if (outputData.good())
+	{
+		outputData.write((char*)&net, sizeof(net));
+	}
 
 	return 0;
 }
