@@ -56,12 +56,19 @@ int main()
 	alglib::mlptrainnetwork(trn, net, 100, rep); // parameters = { trainer object, network, number of restarts, report};
 
 	// Writing the network to a file?
-	std::ofstream outputData;
-	outputData.open("trainedNetwork100Restarts.txt", std::ios::out);
 
+	std::ifstream::pos_type size = sizeof(net);
+	alglib::multilayerperceptron* memblock;
+	memblock = &net;
+
+	std::ofstream outputData;
+	outputData.open("Network100Restarts", std::ios::binary);
+	
 	if (outputData.good())
 	{
-		outputData.write((char*)&net, sizeof(net));
+		outputData.seekp(0, std::ios::beg);
+		outputData.write((char*)&memblock, size);
+		outputData.close();
 	}
 
 	return 0;
