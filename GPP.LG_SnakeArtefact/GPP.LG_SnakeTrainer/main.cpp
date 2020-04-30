@@ -11,8 +11,8 @@ int main()
 	alglib::mlptrainer trn;
 	alglib::mlpcreatetrainer(400, 1, trn);
 
-	alglib::real_2d_array xy;	// Okay, this should be the inputs from the data set. I.e. the first array will be the first data set, ending with a number
-																		// between 1 and 3 as well as a ; on the end which will be used to tell the program to use next line.
+	alglib::real_2d_array xy;
+																		
 	xy.setlength(10015, 401);
 
 	std::ifstream inFile("outputData.txt", std::ios::in);

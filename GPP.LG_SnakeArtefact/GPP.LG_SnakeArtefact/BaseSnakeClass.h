@@ -4,6 +4,10 @@
 
 #define InvalidPosition -1
 
+#define NUM_COLUMNS 20
+#define NUM_ROWS 20
+#define TILE_LENGTH 10
+
 class BaseSnakeClass
 {
 public:

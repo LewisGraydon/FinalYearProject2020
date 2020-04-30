@@ -8,12 +8,20 @@
 class AISnake : public BaseSnakeClass
 {
 public:
-	AISnake(sf::VideoMode screenSize);
+	AISnake(sf::VideoMode screenSize, sf::Vector2i minBounds, sf::Vector2i maxBounds);
 	~AISnake();
 
-	void Update(sf::Event& event);
+	void Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMode screenSize);
+
+	void DetermineDirection(sf::RenderWindow& window, sf::VideoMode screenSize);
 
 private:
+
+	sf::Vector2i minGameBounds = {};
+	sf::Vector2i maxGameBounds = {};
+
 	alglib::multilayerperceptron net;
+	alglib::real_1d_array x;
+	alglib::real_1d_array y;
 };
 

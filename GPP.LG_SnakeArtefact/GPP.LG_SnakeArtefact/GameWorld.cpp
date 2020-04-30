@@ -57,7 +57,7 @@ void GameWorld::InitialiseGameWorld(sf::VideoMode screenSize)
 	}
 	else
 	{
-		snakeCharacter = new AISnake(screenSize);
+		snakeCharacter = new AISnake(screenSize, minGameBounds, maxGameBounds);
 	}
 
 	// Spawn a piece of food in the game world.
