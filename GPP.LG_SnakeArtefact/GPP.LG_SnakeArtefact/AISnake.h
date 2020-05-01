@@ -22,6 +22,6 @@ private:
 
 	alglib::multilayerperceptron net;
 	alglib::real_1d_array x;
-	alglib::real_1d_array y;
+	alglib::real_1d_array y = "[0]";
 };
 

@@ -62,12 +62,15 @@ int main()
 	memblock = &net;
 
 	std::ofstream outputData;
-	outputData.open("Network100Restarts", std::ios::binary);
+
+	std::string netString;
+	alglib::mlpserialize(net, netString);
+	
+	outputData.open("Network100Restarts.txt", std::ios::in | std::ios::out);
 	
 	if (outputData.good())
 	{
-		outputData.seekp(0, std::ios::beg);
-		outputData.write((char*)&memblock, size);
+		outputData << netString;
 		outputData.close();
 	}
 

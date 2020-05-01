@@ -123,12 +123,12 @@ void PlayerSnake::SaveData(sf::RenderWindow& window, sf::VideoMode screenSize)
 					dataArray[x + NUM_ROWS * y] = 0;
 				}
 
-				if (col == sf::Color::Green || col == sf::Color::Red)
+				else if (col == sf::Color::Green || col == sf::Color::Red)
 				{
 					dataArray[x + NUM_ROWS * y] = -1;
 				}
 
-				if (col == sf::Color::Magenta)
+				else if (col == sf::Color::Magenta)
 				{
 					dataArray[x + NUM_ROWS * y] = 1;
 				}

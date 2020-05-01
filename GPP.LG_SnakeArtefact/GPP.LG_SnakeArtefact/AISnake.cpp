@@ -3,26 +3,18 @@
 AISnake::AISnake(sf::VideoMode screenSize, sf::Vector2i minBounds, sf::Vector2i maxBounds) : BaseSnakeClass(screenSize), minGameBounds(minBounds), maxGameBounds(maxBounds)
 {
 	std::ifstream inputFile;
+	std::string netString;
 
-	//TODO - assign the network and such (need to look into this)
-	
-	inputFile.open("Network100Restarts", std::ios::binary);
+	inputFile.open("Network100Restarts.txt", std::ios::in | std::ios::out);
 
-	unsigned long long beginning;
-	unsigned long long end;
+	if (inputFile.good())
+	{
+		// My immediate thoughts are since only 30000000000 is being read to the string, it isn't fully reading the file therefore I may need to ignore whitespace and such in the file
+		inputFile >> netString;	
+		inputFile.close();
+	}
 
-	beginning = inputFile.tellg();
-	inputFile.seekg(0, std::ios::end);
-	end = inputFile.tellg();
-
-	std::ifstream::pos_type size = (sizeof(end) - sizeof(beginning));
-	alglib::multilayerperceptron* memblock = new alglib::multilayerperceptron;
-
-	inputFile.seekg(0, std::ios::beg);
-	inputFile.read((char*)&memblock, size);
-	inputFile.close();
-
-	net = *memblock;
+	alglib::mlpunserialize(netString, net);
 }
 
 AISnake::~AISnake()
@@ -81,17 +73,17 @@ void AISnake::DetermineDirection(sf::RenderWindow& window, sf::VideoMode screenS
 			sf::Color col = screenshot.getPixel(minGameBounds.x + TILE_LENGTH / 2 + x * TILE_LENGTH, minGameBounds.y + TILE_LENGTH / 2 + y * TILE_LENGTH);
 			if (col == sf::Color::Blue)
 			{
-				dataArray[x + NUM_ROWS * y] = 0;
+				dataArray[(double)x + (NUM_ROWS * (double)y)] = 0;
 			}
 
-			if (col == sf::Color::Green || col == sf::Color::Red)
+			else if (col == sf::Color::Green || col == sf::Color::Red)
 			{
-				dataArray[x + NUM_ROWS * y] = -1;
+				dataArray[(double)x + (NUM_ROWS * (double)y)] = -1;
 			}
 
-			if (col == sf::Color::Magenta)
+			else if (col == sf::Color::Magenta)
 			{
-				dataArray[x + NUM_ROWS * y] = 1;
+				dataArray[(double)x + (NUM_ROWS * (double)y)] = 1;
 			}
 		}
 	}
