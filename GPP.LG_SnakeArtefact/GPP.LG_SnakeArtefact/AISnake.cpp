@@ -3,17 +3,19 @@
 AISnake::AISnake(sf::VideoMode screenSize, sf::Vector2i minBounds, sf::Vector2i maxBounds) : BaseSnakeClass(screenSize), minGameBounds(minBounds), maxGameBounds(maxBounds)
 {
 	std::ifstream inputFile;
-	std::string netString;
-
-	inputFile.open("Network100Restarts.txt", std::ios::in | std::ios::out);
+	std::string netString = "";
+	std::string tempString = "";
+	inputFile.open("Network1000Restarts.txt", std::ios::in | std::ios::out);
 
 	if (inputFile.good())
 	{
-		// My immediate thoughts are since only 30000000000 is being read to the string, it isn't fully reading the file therefore I may need to ignore whitespace and such in the file
-		inputFile >> netString;	
-		inputFile.close();
+		while (inputFile >> tempString)
+		{
+			netString.append(tempString + " ");
+		}
 	}
 
+	inputFile.close();
 	alglib::mlpunserialize(netString, net);
 }
 
@@ -26,9 +28,8 @@ void AISnake::Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMode s
 	BaseSnakeClass::Update(event, window, screenSize);
 	DetermineDirection(window, screenSize);
 	
+	// So, my snake is a bit of an idiot at 100 restarts...
 	int directionInt = y[0];
-
-	printf("Resulting direction is: " + directionInt);
 
 	switch (directionInt)
 	{
@@ -51,6 +52,8 @@ void AISnake::Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMode s
 		default:
 			break;
 	}
+
+	std::cout << "Direction: " << directionInt << std::endl;
 }
 
 void AISnake::DetermineDirection(sf::RenderWindow& window, sf::VideoMode screenSize)

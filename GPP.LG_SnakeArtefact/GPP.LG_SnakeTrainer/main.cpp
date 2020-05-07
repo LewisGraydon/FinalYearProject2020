@@ -45,7 +45,7 @@ int main()
 	alglib::mlpsetdataset(trn, xy, 4);
 
 	double stoppingCriteria = 0.000;
-	alglib::ae_int_t maxNumberOfIterations = 100;
+	alglib::ae_int_t maxNumberOfIterations = 1000;
 	alglib::mlpsetdecay(trn, 0.01);
 	alglib::mlpsetcond(trn, stoppingCriteria, maxNumberOfIterations);
 
@@ -53,7 +53,7 @@ int main()
 	alglib::mlpreport rep;
 
 	alglib::mlpcreate1(400, 270, 1, net); // paramaters = { number inputs, number hidden neurons, number outputs, output network}; // Number of hidden neurons = ~2/3 input layers + output layers.
-	alglib::mlptrainnetwork(trn, net, 100, rep); // parameters = { trainer object, network, number of restarts, report};
+	alglib::mlptrainnetwork(trn, net, 1000, rep); // parameters = { trainer object, network, number of restarts, report};
 
 	// Writing the network to a file?
 
@@ -66,7 +66,7 @@ int main()
 	std::string netString;
 	alglib::mlpserialize(net, netString);
 	
-	outputData.open("Network100Restarts.txt", std::ios::in | std::ios::out);
+	outputData.open("Network1000Restarts.txt", std::ios::in | std::ios::out);
 	
 	if (outputData.good())
 	{

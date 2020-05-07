@@ -31,7 +31,7 @@ void PlayerSnake::Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMo
 			if (getDirection() != EDirection::eUp)
 			{
 				setDirection(BaseSnakeClass::eUp);
-				//SaveData(window, screenSize);
+				SaveData(window, screenSize);
 			}
 		}
 		break;
@@ -43,7 +43,7 @@ void PlayerSnake::Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMo
 			if (getDirection() != EDirection::eDown)
 			{
 				setDirection(BaseSnakeClass::eDown);
-				//SaveData(window, screenSize);
+				SaveData(window, screenSize);
 			}
 		}
 		break;
@@ -55,7 +55,7 @@ void PlayerSnake::Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMo
 			if (getDirection() != EDirection::eLeft)
 			{
 				setDirection(BaseSnakeClass::eLeft);
-				//SaveData(window, screenSize);
+				SaveData(window, screenSize);
 			}
 		}
 		break;
@@ -67,7 +67,7 @@ void PlayerSnake::Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMo
 			if (getDirection() != EDirection::eRight)
 			{
 				setDirection(BaseSnakeClass::eRight);
-				//SaveData(window, screenSize);
+				SaveData(window, screenSize);
 			}
 		}
 		break;
@@ -80,7 +80,7 @@ void PlayerSnake::Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMo
 void PlayerSnake::SaveData(sf::RenderWindow& window, sf::VideoMode screenSize)
 {
 	std::fstream outputData;
-	outputData.open("outputDataVersion2.txt", std::ios::in | std::ios::out | std::ios::app);
+	outputData.open("SnakeTrainingData.txt", std::ios::in | std::ios::out | std::ios::app);
 
 	if (outputData.good())
 	{
@@ -123,9 +123,14 @@ void PlayerSnake::SaveData(sf::RenderWindow& window, sf::VideoMode screenSize)
 					dataArray[x + NUM_ROWS * y] = 0;
 				}
 
-				else if (col == sf::Color::Green || col == sf::Color::Red)
+				else if (col == sf::Color::Green)
 				{
 					dataArray[x + NUM_ROWS * y] = -1;
+				}
+
+				else if (col == sf::Color::Red)
+				{
+					dataArray[x + NUM_ROWS * y] = -2;
 				}
 
 				else if (col == sf::Color::Magenta)
@@ -139,10 +144,10 @@ void PlayerSnake::SaveData(sf::RenderWindow& window, sf::VideoMode screenSize)
 		
 		for (int count = 0; count < sizeof(dataArray) / sizeof(dataArray[0]); count++)
 		{
-			outputString.append(std::to_string(dataArray[count]) + ", ");
+			outputString.append(std::to_string(dataArray[count]) + ",");
 		}
 
-		outputString.append(std::to_string(actionArray[0]) + ";");
+		outputString.append(std::to_string(actionArray[0]) + ",");
 
 		outputData << outputString << std::endl;
 		outputData.close();
