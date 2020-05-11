@@ -15,6 +15,8 @@ public:
 
 	void DetermineDirection(sf::RenderWindow& window, sf::VideoMode screenSize);
 
+	float MakeAISmartAgain(float currentDirection);
+
 private:
 
 	sf::Vector2i minGameBounds = {};

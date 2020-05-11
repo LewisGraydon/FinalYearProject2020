@@ -12,10 +12,13 @@ int main()
 	alglib::mlpcreatetrainer(400, 1, trn);
 
 	alglib::real_2d_array xy;
-																		
-	xy.setlength(10015, 401);
+	
+	int numberOfRows = 10008;
+	int numberOfColumns = 401;
 
-	std::ifstream inFile("outputData.txt", std::ios::in);
+	xy.setlength(numberOfRows, numberOfColumns);
+
+	std::ifstream inFile("SnakeTrainingData.txt", std::ios::in);
 	
 	int count = 0;
 	int columnCount = 0;
@@ -28,9 +31,9 @@ int main()
 		xy(count, columnCount) = std::stof(line);
 		columnCount++;
 
-		if (columnCount > 400)
+		if (columnCount > (numberOfColumns - 1))
 		{
-			if (count > 10014)
+			if (count > (numberOfRows - 1))
 			{
 				break;
 			}
@@ -66,7 +69,7 @@ int main()
 	std::string netString;
 	alglib::mlpserialize(net, netString);
 	
-	outputData.open("Network1000Restarts.txt", std::ios::in | std::ios::out);
+	outputData.open("SnakeTrainedNetwork1000Restarts.txt", std::ios::in | std::ios::out);
 	
 	if (outputData.good())
 	{

@@ -31,7 +31,7 @@ void PlayerSnake::Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMo
 			if (getDirection() != EDirection::eUp)
 			{
 				setDirection(BaseSnakeClass::eUp);
-				SaveData(window, screenSize);
+				//SaveData(window, screenSize);
 			}
 		}
 		break;
@@ -43,7 +43,7 @@ void PlayerSnake::Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMo
 			if (getDirection() != EDirection::eDown)
 			{
 				setDirection(BaseSnakeClass::eDown);
-				SaveData(window, screenSize);
+				//SaveData(window, screenSize);
 			}
 		}
 		break;
@@ -55,7 +55,7 @@ void PlayerSnake::Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMo
 			if (getDirection() != EDirection::eLeft)
 			{
 				setDirection(BaseSnakeClass::eLeft);
-				SaveData(window, screenSize);
+				//SaveData(window, screenSize);
 			}
 		}
 		break;
@@ -67,7 +67,7 @@ void PlayerSnake::Update(sf::Event& event, sf::RenderWindow& window, sf::VideoMo
 			if (getDirection() != EDirection::eRight)
 			{
 				setDirection(BaseSnakeClass::eRight);
-				SaveData(window, screenSize);
+				//SaveData(window, screenSize);
 			}
 		}
 		break;
